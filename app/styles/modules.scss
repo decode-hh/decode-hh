@@ -1,8 +1,15 @@
 .map{
 	width: 400px;
 	height: 400px;
-	overflow: hidden;
+	-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
 	.gm-style-cc{
 		display: none;
 	}
+}
+
+.mapwrap{
+	overflow: hidden;
+	display: inline-block;
+	border: $circle-border;
+	border-radius: 50%;
 }
