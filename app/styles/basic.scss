@@ -9,8 +9,9 @@ figure{
 html,
 input{
 	font-family: 'Marvel', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 24px;
+	line-height: 1.25;
 }
 
 body{
@@ -18,13 +19,16 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6{
-	font-weight: 300;
+	font-weight: 400;
 }
 
-h1, 
-.h1{
-
+h1, h2, h3, h4, h5, h6,
+ul, ol, dd,
+p, figure,
+pre, table, fieldset, hr {
+	margin-bottom: 1.5rem;
 }
+
 
 h2, 
 .h2{
@@ -64,7 +68,9 @@ header, section{
 }
 
 .wrapper{
-	max-width: 980px;
+	box-sizing: border-box;
+	padding: 0 20px;
+	max-width: 40.833rem;
 	margin: 0 auto;
 }
 
@@ -82,7 +88,7 @@ section{
 			list-style-type: none;
 			&:before{
 				content: '#';
-				padding: 0 5px 0 0;
+				padding: 0 .208em 0 0;
 			}
 		}
 	}

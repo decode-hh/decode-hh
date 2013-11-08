@@ -1,39 +1,40 @@
 .menu {
-	position: absolute;
-	top: 0;
-	right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: right;
+	-webkit-transform: translateX(1.25rem);
 	@include noGap;
-	li{
+	li {
 		display: inline-block;
-		margin-left: 30px;
+		margin-left: 1.25rem;
 		transition: -webkit-transform 0.5s ease;
 		-webkit-transform: translateY(-150%);
 		@include reGap;
 	}
-	a{
+	a {
 		display: block;
-		padding: 20px;
+		padding: .833em;
 		color: #fff;
 	}
-	&.active{
-		li{
+	&.active {
+		li {
 			-webkit-transform: translateY(0);
 			transition-delay: 0.15s;
-			&:nth-of-type(2){
+			&:nth-of-type(2) {
+				transition-delay: 0.2s;
+			}
+			&:nth-of-type(3) {
+				transition-delay: 0.25s;
+			}
+			&:nth-of-type(4) {
 				transition-delay: 0.3s;
 			}
-			&:nth-of-type(3){
-				transition-delay: 0.45s;
-			}
-			&:nth-of-type(4){
-				transition-delay: 0.6s;
-			}
-			&:nth-of-type(5){
-				transition-delay: 0.75s;
+			&:nth-of-type(5) {
+				transition-delay: 0.35s;
 			}
 		}
 		+ .content{
-			-webkit-transform: translateY(64px) translateX(30px);
+			-webkit-transform: translateY(0) translateX(1.25rem);
 		}
 	}
 }
@@ -42,6 +43,7 @@
 	background-color: #fff;
 	transition: -webkit-transform 0.5s cubic-bezier(.64,.05,.5,2);
 	-webkit-transform-origin: 100% 100%;
+	-webkit-transform: translateY(-2.667rem);
 }
 
 header{
@@ -50,7 +52,7 @@ header{
 	}
 	h1{
 		margin: 0;
-		padding: 30px 0;
+		padding: 18px 0;
 		font-size: 0;
 		line-height: 0;
 		svg{
@@ -58,12 +60,25 @@ header{
 			height: 64px;
 		}
 	}
-
 	.menuButton{
 		position: absolute;
+		display: block;
 		top: 0;
-		right: 0;
-	}
+		right: 20px;
+		width: 50px;
+		height: 49px;
+		margin: 25px 0;
+		cursor: pointer;
+	    &:before{
+	    	content: '';
+	      	display: block;
+	      	height: 6px;
+	      	width: 100%;
+	      	margin-top: 5px;
+	      	box-shadow: 0 17px 0 #000, 0 34px 0 #000;
+	      	background-color: #000;
+	    }
+  	}
 }
 
 .avatar{
