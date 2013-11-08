@@ -19,18 +19,18 @@
 	&.active{
 		li{
 			-webkit-transform: translateY(0);
-			transition-delay: 0.15s;
+			transition-delay: 0.1s;
 			&:nth-of-type(2){
-				transition-delay: 0.2s;
+				transition-delay: 0.15s;
 			}
 			&:nth-of-type(3){
-				transition-delay: 0.25s;
+				transition-delay: 0.2s;
 			}
 			&:nth-of-type(4){
-				transition-delay: 0.3s;
+				transition-delay: 0.25s;
 			}
 			&:nth-of-type(5){
-				transition-delay: 0.35s;
+				transition-delay: 0.3s;
 			}
 		}
 		+ .content{
