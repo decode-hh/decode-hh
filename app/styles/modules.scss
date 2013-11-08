@@ -1,15 +1,25 @@
+
+
+//   /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$   /$$
+//  | $$_  $$_  $$ /$$__  $$| $$__  $$| $$  | $$
+//  | $$ \ $$ \ $$| $$$$$$$$| $$  \ $$| $$  | $$
+//  | $$ | $$ | $$| $$_____/| $$  | $$| $$  | $$
+//  | $$ | $$ | $$|  $$$$$$$| $$  | $$|  $$$$$$/
+//  |__/ |__/ |__/ \_______/|__/  |__/ \______/ 
+
+
 .menu {
-	padding-left: 0;
+	@include noGap;
 	padding-right: 0;
+	padding-left: 0;
 	text-align: right;
 	transform: translateX(1.25rem);
-	@include noGap;
 	li {
+		@include reGap;
 		display: inline-block;
 		margin-left: 1.25rem;
 		transition: transform 0.5s ease;
 		transform: translateY(-150%);
-		@include reGap;
 	}
 	a {
 		display: block;
@@ -18,8 +28,8 @@
 	}
 	&.active {
 		li {
-			-webkit-transform: translateY(0);
 			transition-delay: 0.15s;
+			-webkit-transform: translateY(0);
 			&:nth-of-type(2) {
 				transition-delay: 0.2s;
 			}
@@ -33,60 +43,60 @@
 				transition-delay: 0.35s;
 			}
 		}
-		+ .content{
+		+ .content {
 			transform: translateY(0) translateX(1.25rem) translateZ(0);
 		}
 	}
 }
 
-.content{
+.content {
 	background-color: #fff;
 	transition: transform 0.5s cubic-bezier(.64,.05,.5,2);
-	transform-origin: 100% 100%;
 	transform: translateY(-2.667rem);
+	transform-origin: 100% 100%;
 }
 
-header{
-	.wrapper{
+header {
+	.wrapper {
 		position: relative;
 	}
-	h1{
+	h1 {
 		margin: 0;
-		padding: 18px 0;
+		padding: .750rem 0;
 		font-size: 0;
 		line-height: 0;
-		svg{
+		svg {
 			display: inline-block;
-			height: 64px;
+			height: 64px;//@Daniel Wird inline schon im HTML gesetzt(geenerell fixe Hoehe?)
 		}
 	}
-	.menuButton{
+	.menuButton {
 		position: absolute;
 		display: block;
 		top: 0;
-		right: 20px;
-		width: 50px;
-		height: 49px;
-		margin: 25px 0;
+		right: .833rem;
+		width: 2.083rem;
+		height: 2.042rem;
+		margin: 1.042rem 0;
 		cursor: pointer;
-	    &:before{
-	    	content: '';
-	      	display: block;
-	      	height: 6px;
-	      	width: 100%;
-	      	margin-top: 5px;
-	      	box-shadow: 0 17px 0 #000, 0 34px 0 #000;
-	      	background-color: #000;
-	    }
-  	}
+		&:before {
+			content: '';
+			display: block;
+			height: 6px;
+			width: 100%;
+			margin-top: 5px;
+			box-shadow: 0 17px 0 #000, 0 34px 0 #000;
+			background-color: #000;
+		}
+	}
 }
 
-.avatar{
+.avatar {
 	width: 220px;
 	height: 220px;
 	box-sizing: border-box;
 	border-radius: 50%;
-	&.location_avatar{
+	&.location_avatar {
 		position: absolute;
 		bottom: -10px;
 		right: 0;
@@ -96,7 +106,7 @@ header{
 	}
 }
 
-.stage{
+.stage {
 	@include noGap;
 	.info {
 		display: inline-block;
@@ -106,10 +116,10 @@ header{
 	}
 }
 
-.timer{
+.timer {
 	list-style-type: none;
 	@include noGap;
-	li{
+	li {
 		overflow: hidden;
 		display: block;
 		position: relative;
@@ -120,7 +130,7 @@ header{
 		color: $std-text-color;
 		font-size: 80px;
 		line-height: 1;
-		&:before{
+		&:before {
 			content: attr(data-value);
 			display: block;
 			position: absolute;
@@ -128,7 +138,7 @@ header{
 			left: 0;
 			text-align: center;
 		}
-		&:nth-child(2n){
+		&:nth-child(2n) {
 			margin-top: 4px;
 			transform-origin: 50% -2px;
 			&:before{
@@ -136,23 +146,23 @@ header{
 				bottom: -4px;
 			}
 		}
-		&:nth-child(3){
+		&:nth-child(3) {
 			margin-top: -72px;
 		}
-		&:nth-child(4){
+		&:nth-child(4) {
 			transform: rotateX(50deg);
 		}
-		&.t-next:before{
+		&.t-next:before {
 			content: attr(data-value-next);
 		}
 	}
 }
 
-.location_map{
+.location_map {
 	position: relative;
 	display: inline-block;
 	width: 50%;
-	.mapwrap{
+	.mapwrap {
 		position: relative;
 		overflow: hidden;
 		display: inline-block;
@@ -161,39 +171,39 @@ header{
 		border-radius: 50%;
 		background-color: $circle-border-color;
 		&,
-		.map{
+		.map {
 			transition: border-radius 0.3s 0.5s ease;
 		}
 		&:hover,
-		&:hover .map{
+		&:hover .map {
 			border-radius: 0;
 			transition-delay: 0s;
 		}
-		&:hover .addressfield{
+		&:hover .addressfield {
 			transform: translateY(0);
 			transition-delay: 0.2s;
 		}
-		&:hover + .avatar.location_avatar{
+		&:hover + .avatar.location_avatar {
 			transform: scale(0.65);
 			transition-delay: 0s;
 		}
-		.map{
+		.map {
 			width: 400px;
 			height: 400px;
 			border-radius: 50%;
 			-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
-			.gm-style{
+			.gm-style {
 				color: green;
-				div:nth-child(2){
+				div:nth-child(2) {
 					-webkit-flow-into: google-logo;
 					flow-into: google-logo;
 				}
 			}
-			.gm-style-cc{
+			.gm-style-cc {
 				display: none;
 			}
 		}
-		.addressfield{
+		.addressfield {
 			@include reGap;
 			position: absolute;
 			top: 0;
@@ -208,8 +218,8 @@ header{
 			color: $std-text-color;
 			transform: translateY(-200%);
 			transition: transform 0.65s 0s cubic-bezier(.64,.05,.5,2);
-			label{
-				&:before{
+			label {
+				&:before {
 					font-family: 'fontello';
 					content: '\e800';
 					color: #ddd;
@@ -219,19 +229,19 @@ header{
 					transition: color 0.5s ease;
 				}
 			}
-			input[type=text]{
+			input[type=text] {
 				border: none;
 				outline: none;
 				display: inline-block;
 				height: 100%;
 				vertical-align: middle;
-				&:focus + label:before{
+				&:focus + label:before {
 					color: $theme-color;
 				}
 			}
 		}
 	}
-	.google-logo{
+	.google-logo {
 		-webkit-flow-from: google-logo;
 		flow-from: google-logo;
 		height: 24px;

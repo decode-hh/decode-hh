@@ -1,6 +1,7 @@
 $std-text-color: #000;
 $sec-text-color: #fff;
-$theme-color: #ef4b33;
+//$theme-color: #ef4b33;
+$theme-color: linear-gradient(to bottom, #e82e1e 0%,#ef4b33 50%,#e82e1e 100%); /* W3C */
 
 $circle-border-color: #fff;
 $circle-border: 8px solid $circle-border-color;
