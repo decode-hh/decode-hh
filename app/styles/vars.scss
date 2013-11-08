@@ -2,4 +2,14 @@ $std-text-color: #000;
 $sec-text-color: #fff;
 $theme-color: #ef4b33;
 
-$circle-border: 8px solid #fff;
+$circle-border-color: #fff;
+$circle-border: 8px solid $circle-border-color;
+
+@mixin noGap{
+    font-size: 0;
+    line-height: 0;
+}
+@mixin reGap($val1:1rem,$val2:1){
+    font-size: $val1;
+    line-height: $val2;
+}

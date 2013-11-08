@@ -1,15 +1,227 @@
-.map{
-	width: 400px;
-	height: 400px;
-	-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
-	.gm-style-cc{
-		display: none;
+.menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	@include noGap;
+	li{
+		display: inline-block;
+		margin-left: 30px;
+		transition: -webkit-transform 0.5s ease;
+		-webkit-transform: translateY(-150%);
+		@include reGap;
+	}
+	a{
+		display: block;
+		padding: 20px;
+		color: #fff;
+	}
+	&.active{
+		li{
+			-webkit-transform: translateY(0);
+			transition-delay: 0.15s;
+			&:nth-of-type(2){
+				transition-delay: 0.3s;
+			}
+			&:nth-of-type(3){
+				transition-delay: 0.45s;
+			}
+			&:nth-of-type(4){
+				transition-delay: 0.6s;
+			}
+			&:nth-of-type(5){
+				transition-delay: 0.75s;
+			}
+		}
+		+ .content{
+			-webkit-transform: translateY(64px) translateX(30px);
+		}
 	}
 }
 
-.mapwrap{
-	overflow: hidden;
-	display: inline-block;
-	border: $circle-border;
+.content{
+	background-color: #fff;
+	transition: -webkit-transform 0.5s cubic-bezier(.64,.05,.5,2);
+	-webkit-transform-origin: 100% 100%;
+}
+
+header{
+	.wrapper{
+		position: relative;
+	}
+	h1{
+		margin: 0;
+		padding: 30px 0;
+		font-size: 0;
+		line-height: 0;
+		svg{
+			display: inline-block;
+			height: 64px;
+		}
+	}
+
+	.menuButton{
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+.avatar{
+	width: 220px;
+	height: 220px;
+	box-sizing: border-box;
 	border-radius: 50%;
+	&.location_avatar{
+		position: absolute;
+		bottom: -10px;
+		right: 0;
+		border: $circle-border;
+		transition: transform 0.5s 0.5s cubic-bezier(.64,.05,.5,2);
+		transform-origin: 100% 100%;
+	}
+}
+
+.stage{
+	@include noGap;
+	.info {
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;
+		@include reGap;
+	}
+}
+
+.timer{
+	list-style-type: none;
+	@include noGap;
+	li{
+		overflow: hidden;
+		display: block;
+		position: relative;
+		width: 70px;
+		height: 34px;
+		transform-origin: 50% 100%;
+		background-color: #fff;
+		color: $std-text-color;
+		font-size: 80px;
+		line-height: 1;
+		&:before{
+			content: attr(data-value);
+			display: block;
+			position: absolute;
+			top: -4px;
+			left: 0;
+			text-align: center;
+		}
+		&:nth-child(2n){
+			margin-top: 4px;
+			transform-origin: 50% -2px;
+			&:before{
+				top: auto;
+				bottom: -4px;
+			}
+		}
+		&:nth-child(3){
+			margin-top: -72px;
+		}
+		&:nth-child(4){
+			transform: rotateX(50deg);
+		}
+		&.t-next:before{
+			content: attr(data-value-next);
+		}
+	}
+}
+
+.location_map{
+	position: relative;
+	display: inline-block;
+	width: 50%;
+	.mapwrap{
+		position: relative;
+		overflow: hidden;
+		display: inline-block;
+		box-sizing: border-box;
+		border: $circle-border;
+		border-radius: 50%;
+		background-color: $circle-border-color;
+		&,
+		.map{
+			transition: border-radius 0.3s 0.5s ease;
+		}
+		&:hover,
+		&:hover .map{
+			border-radius: 0;
+			transition-delay: 0s;
+		}
+		&:hover .addressfield{
+			transform: translateY(0);
+			transition-delay: 0.2s;
+		}
+		&:hover + .avatar.location_avatar{
+			transform: scale(0.65);
+			transition-delay: 0s;
+		}
+		.map{
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
+			.gm-style{
+				color: green;
+				div:nth-child(2){
+					-webkit-flow-into: google-logo;
+					flow-into: google-logo;
+				}
+			}
+			.gm-style-cc{
+				display: none;
+			}
+		}
+		.addressfield{
+			@include reGap;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+			z-index: 1;
+			margin: 5px;
+			padding: 10px;
+			border: 1px solid #ddd;
+			outline: 0;
+			background-color: #fff;
+			color: $std-text-color;
+			transform: translateY(-200%);
+			transition: transform 0.65s 0s cubic-bezier(.64,.05,.5,2);
+			label{
+				&:before{
+					font-family: 'fontello';
+					content: '\e800';
+					color: #ddd;
+					display: inline-block;
+					height: 100%;
+					vertical-align: middle;
+					transition: color 0.5s ease;
+				}
+			}
+			input[type=text]{
+				border: none;
+				outline: none;
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+				&:focus + label:before{
+					color: $theme-color;
+				}
+			}
+		}
+	}
+	.google-logo{
+		-webkit-flow-from: google-logo;
+		flow-from: google-logo;
+		height: 24px;
+		margin: -34px 0 0 8px;
+		pointer-events: prevent-default;
+		z-index: 5;
+	}
 }

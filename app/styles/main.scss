@@ -1,4 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Marvel:400,700);
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?4349582');
+  src: url('../font/fontello.eot?4349582#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?4349582') format('woff'),
+       url('../font/fontello.ttf?4349582') format('truetype'),
+       url('../font/fontello.svg?4349582#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @import "vars";
 @import "basic";
