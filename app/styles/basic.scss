@@ -1,7 +1,8 @@
 html,
 body,
 ul, 
-figure{
+figure,
+p {
 	margin: 0;
 	padding: 0;
 }
@@ -19,6 +20,7 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6{
+	margin-top: 0;
 	font-weight: 400;
 }
 
@@ -26,7 +28,7 @@ h1, h2, h3, h4, h5, h6,
 ul, ol, dd,
 p, figure,
 pre, table, fieldset, hr {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.25rem;
 }
 
 
@@ -38,11 +40,13 @@ h2,
 h3,
 .h3{
 	font-size: 2em;
+	margin-bottom: -.236rem;
 }
 
 h4,
 .h4{
 	font-size: 1.6em;
+	margin-bottom: 1rem;
 }
 
 h5,

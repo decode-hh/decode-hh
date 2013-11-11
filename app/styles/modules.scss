@@ -91,6 +91,10 @@ header {
 	}
 }
 
+article {
+	overflow: hidden; //should be replaced with clearfixx
+}
+
 .avatar {
 	width: 220px;
 	height: 220px;
@@ -104,6 +108,16 @@ header {
 		transition: transform 0.5s 0.5s cubic-bezier(.64,.05,.5,2);
 		transform-origin: 100% 100%;
 	}
+}
+
+.speaker_avatar {
+	display: block;
+	float: left;
+}
+
+.speaker_text {
+	width: 70%;
+	float: right;
 }
 
 .stage {

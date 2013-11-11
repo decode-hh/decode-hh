@@ -1,16 +1,16 @@
 $std-text-color: #000;
 $sec-text-color: #fff;
 //$theme-color: #ef4b33;
-$theme-color: linear-gradient(to bottom, #e82e1e 0%,#ef4b33 50%,#e82e1e 100%); /* W3C */
+$theme-color: linear-gradient(to bottom, #e82e1e 0%,#ef4b33 50%,#e82e1e 100%); /* W3C */ //Gradient should be teaked to be more subtle
 
 $circle-border-color: #fff;
 $circle-border: 8px solid $circle-border-color;
 
 @mixin noGap{
-    font-size: 0;
-    line-height: 0;
+  font-size: 0;
+  line-height: 0;
 }
 @mixin reGap($val1:1rem,$val2:1){
-    font-size: $val1;
-    line-height: $val2;
+  font-size: $val1;
+  line-height: $val2;
 }
