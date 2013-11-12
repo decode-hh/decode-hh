@@ -1,7 +1,23 @@
+
+
+//   /$$      /$$                 /$$           /$$                            /$$$$$$                      /$$          
+//  | $$$    /$$$                | $$          | $$                           /$$__  $$                    | $$          
+//  | $$$$  /$$$$  /$$$$$$   /$$$$$$$ /$$   /$$| $$  /$$$$$$   /$$$$$$       | $$  \__/  /$$$$$$$  /$$$$$$ | $$  /$$$$$$ 
+//  | $$ $$/$$ $$ /$$__  $$ /$$__  $$| $$  | $$| $$ |____  $$ /$$__  $$      |  $$$$$$  /$$_____/ |____  $$| $$ /$$__  $$
+//  | $$  $$$| $$| $$  \ $$| $$  | $$| $$  | $$| $$  /$$$$$$$| $$  \__/       \____  $$| $$        /$$$$$$$| $$| $$$$$$$$
+//  | $$\  $ | $$| $$  | $$| $$  | $$| $$  | $$| $$ /$$__  $$| $$             /$$  \ $$| $$       /$$__  $$| $$| $$_____/
+//  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$/| $$|  $$$$$$$| $$            |  $$$$$$/|  $$$$$$$|  $$$$$$$| $$|  $$$$$$$
+//  |__/     |__/ \______/  \_______/ \______/ |__/ \_______/|__/             \______/  \_______/ \_______/|__/ \_______/
+
+// http://modularscale.com/scale/?px1=22&px2=30&ra1=1.618&ra2=0
+// Modular Scale 22px @ 1:1.618	 30px @ 1:1.618//
+
+
 html,
 body,
 ul, 
-figure{
+figure,
+p {
 	margin: 0;
 	padding: 0;
 }
@@ -11,7 +27,9 @@ input{
 	font-family: 'Marvel', sans-serif;
 	font-weight: 400;
 	font-size: 22px;
-	line-height: 1.25;
+	line-height: 1.364;
+	-webkit-font-smoothing: antialiased;
+	color: $std-text-color;
 }
 
 body{
@@ -19,30 +37,36 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6{
+	margin-top: 0;
 	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6,
 ul, ol, dd,
-p, figure,
+p,
 pre, table, fieldset, hr {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.364rem;
 }
 
 
 h2, 
 .h2{
-	font-size: 2.4em;
+	margin-top: -.682rem;
+	font-size: 2.206rem;
+	line-height: 1.364;
 }
 
 h3,
 .h3{
-	font-size: 2em;
+	margin-top: -.182rem;
+	font-size: 1.618rem;
+	margin-bottom: -.236rem;
 }
 
 h4,
 .h4{
-	font-size: 1.6em;
+	font-size: 1.364rem;
+	margin-bottom: .843rem;
 }
 
 h5,
@@ -70,12 +94,17 @@ header, section{
 .wrapper{
 	box-sizing: border-box;
 	padding: 0 20px;
-	max-width: 40.833rem;
+	max-width: 42.727rem;
 	margin: 0 auto;
 }
 
+header {
+	padding: .382rem 0;
+}
+
 section{
-	padding: 20px 0;
+	background: $sec-theme-color;
+	padding: 2.206rem 0;
 	&:nth-of-type(2n-1){
 		background: $theme-gradient;
 		color: $sec-text-color;
