@@ -10,7 +10,7 @@ html,
 input{
 	font-family: 'Marvel', sans-serif;
 	font-weight: 400;
-	font-size: 24px;
+	font-size: 22px;
 	line-height: 1.25;
 }
 
@@ -83,13 +83,11 @@ section{
 }
 
 .content{ 
-	ul{
-		li{
-			list-style-type: none;
-			&:before{
-				content: '#';
-				padding: 0 .208em 0 0;
-			}
+	li{
+		list-style-type: none;
+		&:before{
+			content: '#';
+			padding: 0 .208em 0 0;
 		}
 	}
 }
