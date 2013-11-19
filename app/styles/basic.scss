@@ -19,7 +19,6 @@ input{
 	font-weight: 400;
 	font-size: 22px;
 	line-height: 1.364;
-	-webkit-font-smoothing: antialiased;
 	color: $std-text-color;
 	text-rendering: optimizeLegibility;
 }
@@ -86,7 +85,7 @@ header, section{
 .wrapper{
 	box-sizing: border-box;
 	padding: 0 20px;
-	max-width: 42.727rem;
+	max-width: 44.545rem;
 	margin: 0 auto;
 }
 
