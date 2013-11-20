@@ -387,15 +387,17 @@ article {
 		}
 		&:before {
 			content: open-quote;
-			left: -60px;
-			top: -100px;
+			left: -104px;
+			top: 0px;
 		}
 		&:after {
 			content: close-quote;
-			right: -30px;
-			top: 30px;
+			right: -52px;
+			top: 120px;
 		}
-		
+	}
+}
+
 .speaker_text {
 	width: 70%;
 	float: right;
@@ -406,12 +408,12 @@ article {
 	}
 }
 
-footer{
+footer {
 	text-align: center;
-	ul{
+	ul {
 		margin: 0;
 		@include noGap;
-		li{
+		li {
 			position: relative;
 			display: inline-block;
 			margin: 0 20px;
@@ -419,8 +421,9 @@ footer{
 			height: 65px;
 			border-radius: 50%;
 			border: 3px solid $sec-text-color;
+			@include reGap;
 			//background-color: $sec-text-color;
-			&:before{
+			&:before {
 				content: '';
 				position: absolute;
 				top: -1px;
@@ -431,11 +434,10 @@ footer{
 				border-radius: 50%;
 				transition: transform 0.4s cubic-bezier(.64,.05,.5,2);
 			}
-			&:hover:before{
+			&:hover:before {
 				transform: scale(0.88);
 			}
-			@include reGap;
-			a{
+			a {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -448,10 +450,10 @@ footer{
 			}
 		}
 	}
-	a{
+	a {
 		color: #fff;
 		display: inline-block;
-		&.mailaddress{
+		&.mailaddress {
 			margin-bottom: 1.364rem;
 		}
 	}
