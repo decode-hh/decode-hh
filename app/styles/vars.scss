@@ -1,8 +1,9 @@
 $std-text-color: #363636;
 $sec-text-color: #fff;
 $theme-color: #ef4b33;
+$theme-color-dark: #e64933;
 $sec-theme-color: #f4f3f3;
-$theme-gradient: linear-gradient(to bottom, #e64933 0%,$theme-color 50%,#e64933 100%); /* W3C */
+$theme-gradient: linear-gradient(to bottom, $theme-color-dark 0%,$theme-color 50%,$theme-color-dark 100%); /* W3C */
 
 
 $circle-border-color: #fff;
