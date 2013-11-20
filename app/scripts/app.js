@@ -90,4 +90,8 @@ function insertTime(counter, value, prevValue){
 	counter.children()[1].dataset.time = createDezimals(value);
 }
 
-updateTime();
+//updateTime();
+
+
+
+

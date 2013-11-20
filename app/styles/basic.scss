@@ -103,14 +103,17 @@ section{
 	&:nth-of-type(odd) {
 		-webkit-font-smoothing: auto;
 	}
-}
-
-.content{ 
 	li{
 		list-style-type: none;
 		&:before{
-			content: '#';
+			content: '#'; // Setting bullet icon
 			padding: 0 .208em 0 0;
 		}
 	}
+}
+
+footer{
+	padding: 2.206rem 0 0;
+	background: $theme-gradient;
+	color: $sec-text-color;
 }

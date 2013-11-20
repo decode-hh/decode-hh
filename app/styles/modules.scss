@@ -54,6 +54,7 @@
 	transition: transform 0.5s cubic-bezier(.64,.05,.5,2);
 	transform: translateY(-2.667rem);
 	transform-origin: 0 0;
+	box-shadow: 0 100px 0 $theme-color-dark; //Fixes gap produced by translating up the content area for menu.
 }
 
 header {
@@ -110,40 +111,44 @@ article {
 	}
 }
 
-.speaker_avatar {
-	display: block;
-	position: relative;
-	float: left;
-	.twitter {
-		position: absolute;
-		width: 65px;
-		height: 65px;
-		border-radius: 50%;
-		background: $theme-gradient;
-		bottom: 10px;
-		left: 145px;
-		border: 5px solid #fff;
-		color: #fff;
+.icon{
+	font-size: 0px;
+	text-indent: -12px;
+	text-align: center;
+	&:before {
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+		content: '';
+	}
+	&:after {
+		display: inline-block;
+		content: '';
+		vertical-align: middle;
 		font-size: 1.8rem;
-		text-align: center;
-		&:before {
-			display: inline-block;
-			vertical-align: middle;
-			height: 100%;
-			content: '';
-		}
-		&:after {
-			font-family: 'fontello';
+		font-family: 'fontello';
+		-webkit-font-smoothing: antialiased;
+	}
+	&.twitter{
+		&:after{
 			content: '\e801';
-			display: inline-block;
-			vertical-align: middle;
 		}
 	}
-}
-
-.speaker_text {
-	width: 70%;
-	float: right;
+	&.googleplus{
+		&:after{
+			content: '\e803';
+		}
+	}
+	&.facebook{
+		&:after{
+			content: '\e804';
+		}
+	}
+	&.meetup{
+		&:after{
+			content: '\e805';
+		}
+	}	
 }
 
 .stage {
@@ -343,14 +348,87 @@ article {
 	}
 }
 
+.speaker_avatar {
+	display: block;
+	position: relative;
+	float: left;
+	.twitter {
+		position: absolute;
+		width: 65px;
+		height: 65px;
+		border-radius: 50%;
+		background: $theme-gradient;
+		bottom: 10px;
+		left: 145px;
+		border: 5px solid #fff;
+		color: #fff;
+	}
+}
+
 .speaker article {
 	margin-bottom: 2.8rem;
 }
 
 .speaker_text {
+	width: 70%;
+	float: right;
 	margin-top: .618rem;
 	h4:before {
 		content: '#';
 		padding: 0 .208em 0 0;
 	}
 }
+
+footer{
+	text-align: center;
+	ul{
+		margin: 0;
+		@include noGap;
+		li{
+			position: relative;
+			display: inline-block;
+			margin: 0 20px;
+			width: 65px;
+			height: 65px;
+			border-radius: 50%;
+			border: 3px solid $sec-text-color;
+			//background-color: $sec-text-color;
+			&:before{
+				content: '';
+				position: absolute;
+				top: -1px;
+				right: -1px;
+				bottom: -1px;
+				left: -1px;
+				background-color: $sec-text-color;
+				border-radius: 50%;
+				transition: transform 0.4s cubic-bezier(.64,.05,.5,2);
+			}
+			&:hover:before{
+				transform: scale(0.88);
+			}
+			@include reGap;
+			a{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				color: $theme-color;
+				&.meetup{
+					text-indent: -14px;
+				}
+			}
+		}
+	}
+	a{
+		color: #fff;
+		display: inline-block;
+		&.mailaddress{
+			margin-bottom: 1.364rem;
+		}
+	}
+}
+
+
+
