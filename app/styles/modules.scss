@@ -329,10 +329,31 @@ article {
 	margin-bottom: 2.8rem;
 }
 
-.speaker_text {
-	margin-top: .618rem;
-	h4:before {
-		content: '#';
-		padding: 0 .208em 0 0;
+.speaker_text h4:before {
+	content: '#';
+	padding: 0 .208em 0 0;
+}
+
+.tweet {
+	a {
+		color: #fff;
+	}
+	p {
+		quotes: "\201C""\201D""\2018""\2019";
+		position: relative;
+		&:before, &:after {
+			position: absolute;
+			font-size: 8rem;
+		}
+		&:before {
+			content: open-quote;
+			left: -60px;
+			top: -100px;
+		}
+		&:after {
+			content: close-quote;
+			right: -30px;
+			top: 30px;
+		}
 	}
 }
