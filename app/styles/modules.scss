@@ -471,16 +471,19 @@ footer {
 		@include noGap;
 		display: inline-block;
 		vertical-align: top;
-		& + li > figure {
-			margin: 0 0 0 1em;
-		}
 	}
 	figure {
 		@include reGap;
+		padding: 0 .46em;
+		width: 6em;
+		margin: 0 0 1.363636364em 0;
 	}
 	img {
 		border-radius: 50%;
 		border: 8px solid #fff;
+		display: block;
+		margin: 0 auto;
+		width: 112px;
 	}
 	figcaption {
 		@include reGap;
