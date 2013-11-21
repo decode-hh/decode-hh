@@ -86,6 +86,9 @@ small {
 }
 
 blockquote {
+	@include breakpoint(secondBreak) {
+		padding: 0 1em 0 1em;
+	}
 	padding: 0 1em 0 4em;
 	position: relative;
 	margin: 1.363636364em;
