@@ -34,3 +34,11 @@ $circle-border: 8px solid $circle-border-color;
     clear: both;
 }
 
+@mixin breakpoint($point) {
+  @if $point == firstBreak {
+    @media (max-width: 870px) { @content; }
+  }
+  @else if $point == secondBreak {
+    @media (max-width: 630px) { @content; }
+  }
+}
