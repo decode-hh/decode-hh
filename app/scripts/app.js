@@ -98,24 +98,24 @@ var lastTweet = [];
 $.getJSON("scripts/tweets.json", function(data){
 	tweets = data;
 	lastTweet = tweets[0];
+	var lastTweetDate = new Date(lastTweet.created_at);
+	var computedText = 
 
-	createTweet(lastTweet.text, lastTweet.user.screen_name, lastTweet.created_at);
+	createTweet(lastTweet.text, lastTweet.user.screen_name, lastTweetDate);
 });
 
-var date = [];
+function wrap( str ) {
+    return '<a href="' + str + '" target="_blank">' + str + '<\/a>';
+};
+	
 function createTweet(text, user, date){
-	date = changeTimeStamp(date);
+	var options = {
+	    weekday: "long", year: "numeric", month: "short",
+	    day: "numeric", hour: "2-digit", minute: "2-digit"
+	};
 	var $tweet = $node.find('.tweet');
-	console.log($tweet);
-	$tweet.find('p').append(text);
-	$tweet.find('cite a').append('@' + user).attr('href', 'http://twitter.com/' + user).after(' on ' + date);
-}
-
-function changeTimeStamp(datestamp){
-	var date = new Date(
-    datestamp.replace(/^\w+ (\w+) (\d+) ([\d:]+) \+0000 (\d+)$/,
-        "$1 $2 $4 $3 UTC"));
-	return date;
+	$tweet.find('p').append(text.replace(/\bhttp[^ ]+/ig, wrap));
+	$tweet.find('cite a').append('@' + user).attr('href', 'http://twitter.com/' + user).after(' on ' + date.toLocaleTimeString("en-us", options));
 }
 
 
