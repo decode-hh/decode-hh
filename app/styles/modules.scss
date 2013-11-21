@@ -94,6 +94,10 @@ article {
 	height: 220px;
 	border: $circle-border;
 	border-radius: 50%;
+	@include breakpoint(secondBreak) {
+		margin: 0 auto 1.363636364em auto;
+		display: block;
+	}
 	&.location_avatar {
 		position: absolute;
 		right: 0;
@@ -338,6 +342,9 @@ article {
 	position: relative;
 	display: block;
 	float: left;
+	@include breakpoint(secondBreak) {
+		float: none;
+	}
 	.twitter {
 		position: absolute;
 		bottom: 10px;
@@ -353,6 +360,9 @@ article {
 
 .speaker article {
 	margin-bottom: 2.8rem;
+	@include breakpoint(secondBreak) {
+		margin: 0;
+	}
 }
 
 .speaker_text h4:before {
@@ -393,10 +403,35 @@ article {
 	float: right;
 	margin-top: .618rem;
 	width: 70%;
+	@include breakpoint(firstBreak) {
+		float: left;
+		width: 55%;
+		margin: 0 0 0 2em;
+	}
+	@include breakpoint(secondBreak) {
+		width: 100%;
+		margin: 0;
+	}
+	h3, h4 {
+		@include breakpoint(secondBreak) {
+			text-align: center;
+		}
+	}
 	h4:before {
 		padding: 0 .208em 0 0;
 		content: '#';
 	}
+}
+
+.imgWrap {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 220px
+}
+
+.about {
+	display: table;
 }
 
 footer {
@@ -455,6 +490,8 @@ footer {
 }
 
 .user {
+	display: table-cell;
+	text-align: center;
 	li {
 		@include noGap;
 		display: inline-block;
