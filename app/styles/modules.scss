@@ -460,6 +460,9 @@ footer {
 		margin: 0;
 		li {
 			@include reGap;
+			@include breakpoint(thirdBreak) {
+				margin: 0 10px 20px;
+			}
 			position: relative;
 			display: inline-block;
 			margin: 0 20px;
