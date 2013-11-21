@@ -13,7 +13,7 @@
 	padding-right: 0;
 	padding-left: 0;
 	text-align: right;
-	transform: translateX(1.25rem);
+	transform: translateX(2.25rem);
 	li {
 		@include reGap;
 		display: inline-block;
@@ -44,7 +44,7 @@
 			}
 		}
 		+ .content {
-			transform: translateY(0) translateX(1.25rem) translateZ(0);
+			transform: translateY(0) translateX(2.25rem) translateZ(0);
 		}
 	}
 }
