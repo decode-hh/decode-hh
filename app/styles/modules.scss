@@ -465,3 +465,30 @@ footer {
 .h4 + .counter_container {
 	margin-top: -30px;
 }
+
+.user {
+	li {
+		@include noGap;
+		display: inline-block;
+		vertical-align: top;
+		& + li > figure {
+			margin: 0 0 0 1em;
+		}
+	}
+	figure {
+		@include reGap;
+	}
+	img {
+		border-radius: 50%;
+		border: 8px solid #fff;
+	}
+	figcaption {
+		@include reGap;
+		span, a {
+			display: block;
+			text-align: center;
+			color: $std-text-color;
+			line-height: 1.363636364;
+		}
+	}
+}
