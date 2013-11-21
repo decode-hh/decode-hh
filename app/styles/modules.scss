@@ -37,6 +37,17 @@
 		}
 		+ .content {
 			transform: translateY(0) translateX(2.636363636rem) translateZ(0);
+			.menuButton{
+				span{
+					opacity: 0;
+				}
+				&:before{
+					transform: rotateZ(-45deg);
+				}
+				&:after{
+					transform: rotateZ(45deg);
+				}
+			}
 		}
 	}
 }
@@ -69,17 +80,24 @@ header {
 		right: .833rem;
 		display: block;
 		margin: 1.042rem 0;
-		width: 2.083rem;
-		height: 2.042rem;
+		width: 2.182rem;
+		height: 2.182rem;
 		cursor: pointer;
-		&:before {
+		span,
+		&:before,
+		&:after {
 			display: block;
-			margin-top: 5px;
+			margin-top: 11px;
 			width: 100%;
 			height: 6px;
 			background-color: $std-text-color;
-			box-shadow: 0 17px 0 $std-text-color, 0 34px 0 $std-text-color;
 			content: '';
+			transform-origin: 100% 50%;
+			transition: 0.5s ease;
+			transition-property: opacity, transform
+		}
+		&:before{
+			margin-top: 3px;
 		}
 	}
 }
