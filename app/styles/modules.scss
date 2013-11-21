@@ -29,7 +29,7 @@
 	&.active {
 		li {
 			transition-delay: 0.15s;
-			-webkit-transform: translateY(0);
+			transform: translateY(0);
 			&:nth-of-type(2) {
 				transition-delay: 0.2s;
 			}
