@@ -105,8 +105,6 @@ article {
 
 .icon{
 	text-align: center;
-	text-indent: -12px;
-	font-size: 0px;
 	&:before {
 		display: inline-block;
 		height: 100%;
@@ -431,7 +429,6 @@ footer {
 				left: 0;
 				color: $theme-color;
 				&.meetup{
-					text-indent: -14px;
 				}
 			}
 		}
