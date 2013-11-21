@@ -405,9 +405,12 @@ article {
 			content: open-quote;
 		}
 		&:after {
-			top: 150px;
+			bottom: -130px;
 			right: -25px;
 			content: close-quote;
+			@include breakpoint(secondBreak) {
+				right: -65px;
+			}
 		}
 	}
 	cite a {
