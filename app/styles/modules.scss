@@ -362,7 +362,8 @@ article {
 
 .tweet {
 	a {
-		color: $dark-link-color;
+		color: #fff;
+		text-decoration: underline;
 	}
 	p {
 		position: relative;
@@ -382,6 +383,9 @@ article {
 			right: -25px;
 			content: close-quote;
 		}
+	}
+	cite a {
+		text-decoration: none;
 	}
 }
 
