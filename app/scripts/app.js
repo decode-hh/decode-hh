@@ -9,9 +9,11 @@ var $node = $(document);
 
 /* Toggle menu */
 var $menu = $node.find('.menu');
-$node.find('.menuButton').on('click', function(){
-    $menu.toggleClass('active');
-});
+function toggleMenu(){
+	$menu.toggleClass('active');
+}
+$node.find('.menuButton').on('click', toggleMenu);
+$menu.on('click', toggleMenu);
 
 /* Counter */
 var limit = 120;
@@ -25,45 +27,53 @@ var counter_minutes = $node.find('.js_counter_minutes');
 var counter_hours = $node.find('.js_counter_hours');
 var counter_days = $node.find('.js_counter_days');
 
+var remainingTime = {
+	'days' : 0,
+	'hours' : 0,
+	'minutes' : 0,
+	'seconds' : 0
+};
+
 var updateTime = function() {
 	var date = new Date();
-	var mill = date.getTime();
-	var seconds = date.getSeconds();
-	var minutes = date.getMinutes();
-	var hours = date.getHours();
-	var days = date.getDate();
+	var dateMill = date.getTime();
+	var eventDate = new Date('12 4 2013 19:00');
+	var eventDateMill = eventDate.getTime();
 
-	if(seconds != prevSecond) {
-		insertTime(counter_seconds, seconds, prevSecond);
-		prevSecond = seconds;
+	function calcDate(milliseconds){
+		remainingTime.seconds = Math.floor((milliseconds / 1000) % 60);
+		remainingTime.minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
+		remainingTime.hours = Math.floor((milliseconds / (1000 * 60 * 60)) % 24);
+		remainingTime.days = Math.floor(milliseconds / (1000 * 60 * 60 * 24));
+	}
+	calcDate(eventDateMill - dateMill);
+
+	if(remainingTime.seconds != prevSecond) {
+		insertTime(counter_seconds, remainingTime.seconds, prevSecond);
+		prevSecond = remainingTime.seconds;
 		flip(counter_seconds);
-		console.log('Sekunden: ', seconds);
 	}
 
-	if(minutes != prevMinute) {
-		insertTime(counter_minutes, minutes, prevMinute);
-		prevMinute = minutes;
+	if(remainingTime.minutes != prevMinute) {
+		insertTime(counter_minutes, remainingTime.minutes, prevMinute);
+		prevMinute = remainingTime.minutes;
 		flip(counter_minutes);
-		console.log('Minuten: ', minutes);
 	}
 
-	if(hours != prevHour) {
-		insertTime(counter_hours, hours, prevHour);
-		prevHour = hours;
+	if(remainingTime.hours != prevHour) {
+		insertTime(counter_hours, remainingTime.hours, prevHour);
+		prevHour = remainingTime.hours;
 		flip(counter_hours);
-		console.log('Stunden: ', hours);
 	}
 
-	if(days != prevDay) {
-		insertTime(counter_days, days, prevDay);
-		prevDay = days;
+	if(remainingTime.days != prevDay) {
+		insertTime(counter_days, remainingTime.days, prevDay);
+		prevDay = remainingTime.days;
 		flip(counter_days);
-		console.log('Tage: ', days);
 	}
 
-	console.log(hours, minutes, seconds);
 	if (limit--){
-		var differenz = (new Date()).getTime() - mill;
+		var differenz = (new Date()).getTime() - (dateMill);
 		window.setTimeout(updateTime, Math.max(1000 - differenz, 1));
 	}
 }
@@ -90,7 +100,7 @@ function insertTime(counter, value, prevValue){
 	counter.children()[1].dataset.time = createDezimals(value);
 }
 
-//updateTime();
+updateTime();
 
 // Twitter API Call
 var tweets = [];
