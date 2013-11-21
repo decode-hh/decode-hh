@@ -374,7 +374,7 @@ article {
 	}
 }
 
-.speaker article {
+#speaker article {
 	margin-bottom: 2.8rem;
 	@include breakpoint(secondBreak) {
 		margin: 0;
@@ -446,7 +446,7 @@ article {
 	width: 220px
 }
 
-.about {
+#about {
 	display: table;
 }
 
