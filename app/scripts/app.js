@@ -105,23 +105,16 @@ $.getJSON("scripts/tweets.json", function(data){
 });
 
 function wrap( str ) {
-    return '<a href="' + str + '">' + str + '<\/a>';
+    return '<a href="' + str + '" target="_blank">' + str + '<\/a>';
 };
-
-function replaceText(text) {
-    text.replace(/\bhttp[^ ]+/ig, wrap));
-	return text;
-}
-
-
+	
 function createTweet(text, user, date){
 	var options = {
 	    weekday: "long", year: "numeric", month: "short",
 	    day: "numeric", hour: "2-digit", minute: "2-digit"
 	};
 	var $tweet = $node.find('.tweet');
-	console.log($tweet);
-	$tweet.find('p').append(text);
+	$tweet.find('p').append(text.replace(/\bhttp[^ ]+/ig, wrap));
 	$tweet.find('cite a').append('@' + user).attr('href', 'http://twitter.com/' + user).after(' on ' + date.toLocaleTimeString("en-us", options));
 }
 
