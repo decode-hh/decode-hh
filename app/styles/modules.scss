@@ -152,6 +152,7 @@ article {
 }
 
 .stage {
+	padding: 30px 0;
 	@include noGap;
 	.info {
 		display: inline-block;
@@ -379,6 +380,7 @@ article {
 		color: #fff;
 	}
 	p {
+		padding-top: 0.679em;
 		quotes: "\201C""\201D""\2018""\2019";
 		position: relative;
 		&:before, &:after {
@@ -388,12 +390,12 @@ article {
 		&:before {
 			content: open-quote;
 			left: -104px;
-			top: 0px;
+			top: 15px;
 		}
 		&:after {
 			content: close-quote;
-			right: -52px;
-			top: 120px;
+			right: -25px;
+			top: 150px;
 		}
 	}
 }
@@ -460,4 +462,6 @@ footer {
 }
 
 
-
+.h4 + .counter_container {
+	margin-top: -30px;
+}

@@ -51,7 +51,8 @@ h2, .h2 {
 
 h3, .h3 {
 	@include font-size(44px);
-	margin: 0 0 .681818182em 0;
+	margin: 0 0 .340909091em 0; //to fit the layout
+	//margin: 0 0 .681818182em 0;
 	line-height: .681818182;
 }
 
@@ -133,7 +134,7 @@ header {
 }
 
 section{
-	padding: 2.206rem 0;
+	padding: 2.045454545em 0;
 	background: $sec-theme-color;
 	&:nth-of-type(2n-1){
 		background: $theme-gradient;
