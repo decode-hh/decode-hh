@@ -92,6 +92,32 @@ function insertTime(counter, value, prevValue){
 
 //updateTime();
 
+// Twitter API Call
+var tweets = [];
+var lastTweet = [];
+$.getJSON("scripts/tweets.json", function(data){
+	tweets = data;
+	lastTweet = tweets[0];
+
+	createTweet(lastTweet.text, lastTweet.user.screen_name, lastTweet.created_at);
+});
+
+var date = [];
+function createTweet(text, user, date){
+	date = changeTimeStamp(date);
+	var $tweet = $node.find('.tweet');
+	console.log($tweet);
+	$tweet.find('p').append(text);
+	$tweet.find('cite a').append('@' + user).attr('href', 'http://twitter.com/' + user).after(' on ' + date);
+}
+
+function changeTimeStamp(datestamp){
+	var date = new Date(
+    datestamp.replace(/^\w+ (\w+) (\d+) ([\d:]+) \+0000 (\d+)$/,
+        "$1 $2 $4 $3 UTC"));
+	return date;
+}
+
 
 
 
