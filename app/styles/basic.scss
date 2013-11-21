@@ -15,63 +15,103 @@ p {
 
 html,
 input{
-	font-family: 'Marvel', sans-serif;
-	font-weight: 400;
 	font-size: 22px;
-	line-height: 1.364;
-	color: $std-text-color;
-	text-rendering: optimizeLegibility;
 }
 
 body{
 	background-color: #333;
+	color: $std-text-color;
+	font-weight: 400;
+	font-family: 'Marvel', sans-serif;
+	line-height: 1.364;
+	text-rendering: optimizeLegibility;
+}
+
+p, ul, ol {
+  margin: 0 0 1.363636364em 0;
+  font-size: 1em;
+  line-height: $baseLineHeight*2;
 }
 
 h1, h2, h3, h4, h5, h6{
-	margin-top: 0;
 	font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6,
-ul, ol, dd,
-p,
-pre, table, fieldset, hr {
-	margin-bottom: 1.364rem;
+/*h1 {
+  @include font-size(59px);
+  margin: 0 0 .509em 0;
+  line-height: $baseLineHeight*4;
+}*/
+
+h2, .h2 {
+	@include font-size(47px);
+	margin: 0 0 .639em 0;
+	line-height: 1.276595745;
 }
 
-
-h2, 
-.h2{
-	margin-top: -.682rem;
-	font-size: 2.206rem;
-	line-height: 1.364;
+h3, .h3 {
+	@include font-size(44px);
+	margin: 0 0 .340909091em 0; //to fit the layout
+	//margin: 0 0 .681818182em 0;
+	line-height: .681818182;
 }
 
-h3,
-.h3{
-	margin-top: -.182rem;
-	font-size: 1.618rem;
-	margin-bottom: -.236rem;
+h4, .h4 {
+	@include font-size(30px);
+	margin: 0 0 1em 0;
+	line-height: 1;
 }
 
-h4,
-.h4{
-	font-size: 1.364rem;
-	margin-bottom: .843rem;
+h5, .h6 {
+	@include font-size(24px);
+	margin: 1.875em 0 .625em 0;
+	line-height: 1.25;
 }
 
-h5,
-.h5{
-	font-size: 1;
+h6, .h6 {
+	@include font-size(22px);
+	margin: 2.045454545em 0 .682em 0;
+	line-height: 1.363636364;
 }
 
-h6,
-.h6{
-	font-size: 1;
-}
-
-a{
+a {
 	text-decoration: none;
+}
+
+small {
+	display: inline-block;
+	margin: 0 0 1.666666667em;
+	font-size: .819em;
+	line-height: 1.666666667;
+}
+
+blockquote {
+	padding: 0 1em 0 4em;
+	position: relative;
+	margin: 1.363636364em;
+	//quotes: "\201C""\201D""\2018""\2019";
+	font-weight: 700;
+	font-style: italic;
+	font-size: 1em;
+	&:before {
+		position: absolute;
+		top: -.5em;
+		left: -.62em;
+		//content: open-quote;
+		font-size: 1.8em;
+	}
+	&:after {
+		position: absolute;
+		right: -.5em;
+		bottom: -1em;
+		content: close-quote;
+		font-size: 1.8em;
+	}
+	footer {
+		background: none;
+		text-align: left;
+		padding: 0;
+	}
 }
 
 ::-webkit-input-placeholder{
@@ -84,9 +124,9 @@ header, section{
 
 .wrapper{
 	box-sizing: border-box;
+	margin: 0 auto;
 	padding: 0 20px;
 	max-width: 44.545rem;
-	margin: 0 auto;
 }
 
 header {
@@ -94,8 +134,8 @@ header {
 }
 
 section{
+	padding: 2.045454545em 0;
 	background: $sec-theme-color;
-	padding: 2.206rem 0;
 	&:nth-of-type(2n-1){
 		background: $theme-gradient;
 		color: $sec-text-color;
@@ -106,8 +146,8 @@ section{
 	li{
 		list-style-type: none;
 		&:before{
-			content: '#'; // Setting bullet icon
 			padding: 0 .208em 0 0;
+			content: '#'; // Setting bullet icon
 		}
 	}
 }
