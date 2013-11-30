@@ -44,4 +44,7 @@ $circle-border: 8px solid $circle-border-color;
   @else if $point == thirdBreak {
     @media (max-width: 540px) { @content; }
   }
+  @else if $point == fourthBreak {
+    @media (max-width: 430px) { @content; }
+  }
 }

@@ -394,39 +394,6 @@ article {
 	content: '#';
 }
 
-.tweet {
-	a {
-		color: #fff;
-		text-decoration: underline;
-	}
-	p {
-		position: relative;
-		padding-top: 0.679em;
-		quotes: "\201C""\201D""\2018""\2019";
-		&:before, &:after {
-			position: absolute;
-			width: 1em;
-			font-size: 8rem;
-		}
-		&:before {
-			top: 15px;
-			left: -104px;
-			content: open-quote;
-		}
-		&:after {
-			@include breakpoint(secondBreak) {
-				right: -65px;
-			}
-			right: -25px;
-			bottom: -130px;
-			content: close-quote;
-		}
-	}
-	cite a {
-		text-decoration: none;
-	}
-}
-
 .speaker_text {
 	@include breakpoint(firstBreak) {
 		float: left;
