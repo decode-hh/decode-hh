@@ -92,9 +92,9 @@ header {
 			height: 6px;
 			background-color: $std-text-color;
 			content: '';
-			transform-origin: 100% 50%;
 			transition: 0.5s ease;
-			transition-property: opacity, transform
+			transition-property: opacity, transform;
+			transform-origin: 100% 50%;
 		}
 		&:before{
 			margin-top: 3px;
@@ -107,15 +107,15 @@ article {
 }
 
 .avatar {
+	@include breakpoint(secondBreak) {
+		display: block;
+		margin: 0 auto 1.363636364em auto;
+	}
 	box-sizing: border-box;
 	width: 220px;
 	height: 220px;
 	border: $circle-border;
 	border-radius: 50%;
-	@include breakpoint(secondBreak) {
-		margin: 0 auto 1.363636364em auto;
-		display: block;
-	}
 	&.location_avatar {
 		position: absolute;
 		right: 0;
@@ -355,12 +355,12 @@ article {
 }
 
 .speaker_avatar {
-	position: relative;
-	display: block;
-	float: left;
 	@include breakpoint(secondBreak) {
 		float: none;
 	}
+	position: relative;
+	display: block;
+	float: left;
 	.twitter {
 		position: absolute;
 		bottom: 10px;
@@ -374,10 +374,18 @@ article {
 	}
 }
 
-#speaker article {
-	margin-bottom: 2.8rem;
-	@include breakpoint(secondBreak) {
-		margin: 0;
+#speaker {
+	h2 {
+		margin-top: -.255319149em;
+	}
+	article {
+		@include breakpoint(secondBreak) {
+			margin: 0;
+		}
+		margin-bottom: 2.727272727em;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -397,8 +405,8 @@ article {
 		quotes: "\201C""\201D""\2018""\2019";
 		&:before, &:after {
 			position: absolute;
-			font-size: 8rem;
 			width: 1em;
+			font-size: 8rem;
 		}
 		&:before {
 			top: 15px;
@@ -406,12 +414,12 @@ article {
 			content: open-quote;
 		}
 		&:after {
-			bottom: -130px;
-			right: -25px;
-			content: close-quote;
 			@include breakpoint(secondBreak) {
 				right: -65px;
 			}
+			right: -25px;
+			bottom: -130px;
+			content: close-quote;
 		}
 	}
 	cite a {
@@ -420,18 +428,18 @@ article {
 }
 
 .speaker_text {
+	@include breakpoint(firstBreak) {
+		float: left;
+		margin: 0 0 0 2em;
+		width: 55%;
+	}
+	@include breakpoint(secondBreak) {
+		margin: 0;
+		width: 100%;
+	}
 	float: right;
 	margin-top: .618rem;
 	width: 70%;
-	@include breakpoint(firstBreak) {
-		float: left;
-		width: 55%;
-		margin: 0 0 0 2em;
-	}
-	@include breakpoint(secondBreak) {
-		width: 100%;
-		margin: 0;
-	}
 	h3, h4 {
 		@include breakpoint(secondBreak) {
 			text-align: center;
@@ -447,7 +455,7 @@ article {
 	position: relative;
 	display: block;
 	margin: 0 auto;
-	width: 220px
+	width: 220px;
 }
 
 #about {
@@ -508,7 +516,7 @@ footer {
 
 
 .h4 + .counter_container {
-	margin-top: -30px;
+	margin-top: -26px;
 }
 
 .user {

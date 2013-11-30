@@ -52,7 +52,6 @@ h2, .h2 {
 h3, .h3 {
 	@include font-size(44px);
 	margin: 0 0 .340909091em 0; //to fit the layout
-	//margin: 0 0 .681818182em 0;
 	line-height: .681818182;
 }
 
