@@ -1,18 +1,20 @@
-
-body { perspective: 1200px; }
-
 .menu {
-	@include noGap;
 	padding-right: 0;
 	padding-left: 0;
 	text-align: right;
-	transform: translateX(2.636363636rem);
+	@include noGap;
 	li {
-		@include reGap;
 		display: inline-block;
 		margin-left: 1.25rem;
 		transition: transform 0.5s ease;
 		transform: translateY(-150%);
+		text-align: right;
+		@include reGap;
+		@include breakpoint(secondBreak){
+			display: block;
+			transform: translateY(0);
+			text-align: center;
+		}
 	}
 	a {
 		display: block;
@@ -37,7 +39,7 @@ body { perspective: 1200px; }
 			}
 		}
 		+ .content {
-			transform: translate3d(1.23636rem, -1.8rem, 0) rotateX(5deg) rotateY(3deg);
+			margin-top: 0; 
 			.menuButton{
 				span{
 					opacity: 0;
@@ -54,11 +56,18 @@ body { perspective: 1200px; }
 }
 
 .content {
+	position: relative;
+	margin-top: -58px;
 	background-color: #fff;
 	box-shadow: 0 100px 0 $theme-color-dark;
-	transition: transform 0.5s cubic-bezier(.64,.05,.5,2);
-	transform: translateY(-2.667rem);
+	transition: 0.5s cubic-bezier(.64,.05,.5,1.5);
+	transition-property: transform, margin-top;
 	transform-origin: 0 0;
+	z-index: 1;
+	@include breakpoint(secondBreak){
+		margin-top: -293px;
+		transition-duration: 0.65s;
+	}
 }
 
 header {
@@ -294,6 +303,7 @@ header {
 		&:hover .map {
 			border-radius: 0;
 			transition-delay: 0s;
+			pointer-events: auto;
 		}
 		&:hover .addressfield {
 			transition-delay: 0.2s;
@@ -308,6 +318,7 @@ header {
 			height: 400px;
 			border-radius: 50%;
 			-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
+			pointer-events: none;
 			@include breakpoint(firstBreak){
 				width: 100%;
 				border-radius: 0;
@@ -360,6 +371,8 @@ header {
 					color: $theme-color;
 				}
 			}
+
+			display: none;
 		}
 	}
 	.google-logo {
@@ -459,6 +472,7 @@ header {
 
 footer {
 	text-align: center;
+	padding-bottom: 50px;
 	ul {
 		@include noGap;
 		margin: 0;
