@@ -112,10 +112,6 @@ header {
 	}
 }
 
-article {
-	@extend .cf;
-}
-
 .avatar {
 	@include breakpoint(secondBreak) {
 		display: block;
@@ -430,7 +426,7 @@ article {
 	article {
 		@include noGap;
 		@include breakpoint(secondBreak) {
-			//margin: 0;
+			margin-bottom: .681818182rem;
 		}
 		margin-bottom: 2.727272727rem;
 		&:last-child {
@@ -556,6 +552,8 @@ footer {
 		margin: 0 auto .6em auto;
 		border: 8px solid #fff;
 		border-radius: 50%;
+		width: 128px;
+		height: 128px;
 	}
 	figcaption {
 		@include reGap;
