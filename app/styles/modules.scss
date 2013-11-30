@@ -472,6 +472,7 @@ header {
 
 footer {
 	text-align: center;
+	padding-bottom: 50px;
 	ul {
 		@include noGap;
 		margin: 0;
