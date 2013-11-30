@@ -24,15 +24,15 @@ $circle-border: 8px solid $circle-border-color;
   font-size: ($pxValue / $baseFontSize) + em;
 }
 
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
+// .cf:before,
+// .cf:after {
+//     content: " ";
+//     display: table;
+// }
  
-.cf:after {
-    clear: both;
-}
+// .cf:after {
+//     clear: both;
+// }
 
 @mixin breakpoint($point) {
   @if $point == firstBreak {

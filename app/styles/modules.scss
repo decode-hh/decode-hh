@@ -109,7 +109,7 @@ article {
 .avatar {
 	@include breakpoint(secondBreak) {
 		display: block;
-		margin: 0 auto 1.363636364em auto;
+		margin: 0 auto;
 	}
 	box-sizing: border-box;
 	width: 220px;
@@ -122,6 +122,9 @@ article {
 		bottom: -10px;
 		transition: transform 0.5s 0.5s cubic-bezier(.64,.05,.5,2);
 		transform-origin: 100% 100%;
+		@include breakpoint(firstBreak) {
+			display: none;
+		}
 	}
 }
 
@@ -171,6 +174,10 @@ article {
 		display: inline-block;
 		width: 50%;
 		vertical-align: top;
+		@include breakpoint(firstBreak){
+			display: block;
+			width: 100%;
+		}	
 		ul {
 			line-height: 1.4;
 		}
@@ -265,6 +272,11 @@ article {
 	position: relative;
 	display: inline-block;
 	width: 50%;
+	@include breakpoint(firstBreak){
+		display: block;
+		width: 100%;
+		pointer-events: none;
+	}
 	.mapwrap {
 		position: relative;
 		display: inline-block;
@@ -273,6 +285,10 @@ article {
 		border: $circle-border;
 		border-radius: 50%;
 		background-color: $circle-border-color;
+		@include breakpoint(firstBreak){
+			display: block;
+			border-radius: 0;
+		}
 		&,
 		.map {
 			transition: border-radius 0.3s 0.5s ease;
@@ -295,6 +311,11 @@ article {
 			height: 400px;
 			border-radius: 50%;
 			-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
+			@include breakpoint(firstBreak){
+				width: 100%;
+				border-radius: 0;
+				-webkit-mask: none;
+			}
 			.gm-style {
 				color: green;
 				div:nth-child(2) {
@@ -355,15 +376,21 @@ article {
 }
 
 .speaker_avatar {
-	@include breakpoint(secondBreak) {
-		float: none;
-	}
+	width: 30%;
 	position: relative;
-	display: block;
-	float: left;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 1.363636364rem;
+	@include breakpoint(firstBreak) {
+		width: 45%;
+	}
+	@include breakpoint(secondBreak) {
+		width: 100%;
+		text-align: center;
+	}
 	.twitter {
 		position: absolute;
-		bottom: 10px;
+		bottom: 0;
 		left: 145px;
 		width: 65px;
 		height: 65px;
@@ -371,6 +398,14 @@ article {
 		border-radius: 50%;
 		background: $theme-gradient;
 		color: #fff;
+		@include breakpoint(secondBreak) {
+			position: relative;
+			display: inline-block;
+			margin-top: -75px;
+			margin-left: 145px;
+			left: 0;
+			vertical-align: bottom;
+		}
 	}
 }
 
@@ -379,10 +414,11 @@ article {
 		margin-top: -.255319149em;
 	}
 	article {
+		@include noGap;
 		@include breakpoint(secondBreak) {
-			margin: 0;
+			//margin: 0;
 		}
-		margin-bottom: 2.727272727em;
+		margin-bottom: 2.727272727rem;
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -428,18 +464,20 @@ article {
 }
 
 .speaker_text {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: .618rem;
+	width: 70%;
+	box-sizing: border-box;
+	@include reGap;
 	@include breakpoint(firstBreak) {
-		float: left;
-		margin: 0 0 0 2em;
+		margin: 0;
 		width: 55%;
 	}
 	@include breakpoint(secondBreak) {
 		margin: 0;
 		width: 100%;
 	}
-	float: right;
-	margin-top: .618rem;
-	width: 70%;
 	h3, h4 {
 		@include breakpoint(secondBreak) {
 			text-align: center;
@@ -449,13 +487,6 @@ article {
 		padding: 0 .208em 0 0;
 		content: '#';
 	}
-}
-
-.imgWrap {
-	position: relative;
-	display: block;
-	margin: 0 auto;
-	width: 220px;
 }
 
 #about {
