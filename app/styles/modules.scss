@@ -398,6 +398,7 @@ article {
 		&:before, &:after {
 			position: absolute;
 			font-size: 8rem;
+			width: 1em;
 		}
 		&:before {
 			top: 15px;
