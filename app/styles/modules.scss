@@ -199,6 +199,15 @@ header {
 	display: inline-block;
 	margin-right: 20px;
 	vertical-align: top;
+	@include breakpoint(secondBreak){
+		margin-right: 16px;
+		&:nth-of-type(3){
+			margin-right: 0;
+		}
+		&:last-of-type{
+			display: none;
+		}
+	}
 	dt, dd{
 		margin: 0;
 		padding: 0;
@@ -281,6 +290,7 @@ header {
 	@include breakpoint(firstBreak){
 		display: block;
 		width: 100%;
+		height: 300px;
 		pointer-events: none;
 	}
 	.mapwrap {
@@ -323,6 +333,9 @@ header {
 				width: 100%;
 				border-radius: 0;
 				-webkit-mask: none;
+			}
+			@include breakpoint(secondBreak){
+				height: 300px;
 			}
 			.gm-style {
 				color: green;
