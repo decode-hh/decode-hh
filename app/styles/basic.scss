@@ -85,34 +85,71 @@ small {
 }
 
 blockquote {
-	@include breakpoint(secondBreak) {
-		padding: 0 1em 0 1em;
+	@include breakpoint(firstBreak) {
+		width: 25em;
 	}
-	padding: 0 1em 0 4em;
+	@include breakpoint(secondBreak) {
+		width: 18em;
+	}
+	@include breakpoint(thirdBreak) {
+		width: 13em;
+	}
+	width: 32em;
+	padding: 2.4em 0;
+	margin: 0 auto;
 	position: relative;
-	margin: 1.363636364em;
-	//quotes: "\201C""\201D""\2018""\2019";
 	font-weight: 700;
 	font-style: italic;
 	font-size: 1em;
+	quotes: "\201C""\201D""\2018""\2019";
+	&:before, &:after {
+		font-size: 8em;
+		width: .6em;
+	}
 	&:before {
 		position: absolute;
-		top: -.5em;
-		left: -.62em;
-		//content: open-quote;
-		font-size: 1.8em;
+		top: -.3em;
+		left: -.52em;
+		content: open-quote;
+		@include breakpoint(fourthBreak) {
+			top: -0.4em;
+			left: -0.15em;
+		}
 	}
 	&:after {
 		position: absolute;
 		right: -.5em;
-		bottom: -1em;
+		bottom: -.8em;
 		content: close-quote;
-		font-size: 1.8em;
+		@include breakpoint(fourthBreak) {
+			right: 0;
+		}
 	}
 	footer {
+		@include breakpoint(secondBreak) {
+			width: 100%;
+		}
 		background: none;
 		text-align: left;
 		padding: 0;
+		width: 25em;
+		margin: 0 auto;
+	}
+	a {
+		color: #fff;
+		text-decoration: underline;
+	}
+	p {
+		@include breakpoint(secondBreak) {
+			width: 100%
+		}
+		width: 25em;
+		position: relative;
+		margin: 0 0 .1em 0;
+		margin: 0 auto;
+	}
+	cite a {
+		text-decoration: none;
 	}
 }
 
