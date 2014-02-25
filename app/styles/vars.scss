@@ -15,6 +15,7 @@ $circle-border: 8px solid $circle-border-color;
   font-size: 0;
   line-height: 0;
 }
+
 @mixin reGap($val1:1rem,$val2:1){
   font-size: $val1;
   line-height: $val2;

@@ -63,6 +63,7 @@
 	transition: 0.5s cubic-bezier(.64,.05,.5,1.5);
 	transition-property: transform, margin-top;
 	transform-origin: 0 0;
+	transform: translateZ(0);
 	z-index: 1;
 	@include breakpoint(secondBreak){
 		margin-top: -293px;
@@ -208,6 +209,9 @@ header {
 			display: none;
 		}
 	}
+	&:last-of-type{
+			display: none;
+	}
 	dt, dd{
 		margin: 0;
 		padding: 0;
@@ -290,7 +294,6 @@ header {
 	@include breakpoint(firstBreak){
 		display: block;
 		width: 100%;
-		height: 300px;
 		pointer-events: none;
 	}
 	.mapwrap {
@@ -542,7 +545,6 @@ footer {
 }
 
 .user {
-	display: table-cell;
 	text-align: center;
 	li {
 		@include noGap;
