@@ -6,7 +6,7 @@
 
 html,
 body,
-ul, 
+ul,
 figure,
 p {
 	margin: 0;
@@ -202,6 +202,10 @@ section{
 	column-width: 19em;
 	column-gap: 2em;
 	margin: 0 0 2.727272727em 0;
+	@include breakpoint(firstBreak) {
+		column-count: 1;
+		column-width: auto;
+	}
 }
 
 footer{
