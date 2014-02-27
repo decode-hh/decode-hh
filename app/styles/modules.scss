@@ -265,11 +265,11 @@ header {
 			}
 		}
 		&.flip li:first-of-type:before {
-				visibility: hidden;
-				transition-delay: 0, 0.5s;
-				transition-timing-function: ease;
-				transition-duration: 1.25s, 0;
-				transition-property: transform, visibility;
+			visibility: hidden;
+			transition-delay: 0, 0.5s;
+			transition-timing-function: ease;
+			transition-duration: 1.25s, 0;
+			transition-property: transform, visibility;
 			transform: rotateX(-360deg);
 		}
 		&.flip li:nth-of-type(2):after {
@@ -277,11 +277,11 @@ header {
 			transform: rotateX(0deg) translateY(38px);
 		}
 		&.flip li:first-of-type:after {
-				visibility: hidden;
-				transition-delay: 1s, 0.75s;
-				transition-timing-function: ease;
-				transition-duration: 1.25s, 0;
-				transition-property: -webkit-transform, visibility;
+			visibility: hidden;
+			transition-delay: 1s, 0.75s;
+			transition-timing-function: ease;
+			transition-duration: 1.25s, 0;
+			transition-property: -webkit-transform, visibility;
 			transform: rotateX(-180deg) translateY(38px);
 		}
 	}
