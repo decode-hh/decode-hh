@@ -1,6 +1,7 @@
 require.config({
     paths: {
-        jquery: '../bower_components/jquery/jquery'
+        jquery: '../bower_components/jquery/jquery',
+        async: '../bower_components/requirejs-plugins/src/async'
     },
     shim: {}
 });

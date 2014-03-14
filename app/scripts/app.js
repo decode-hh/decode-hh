@@ -1,4 +1,4 @@
-define(['jquery', 'menu', 'countdown'], function($, menu, countdown) {
+define(['jquery', 'menu', 'meetup', 'map', 'countdown'], function($, menu, meetup, map, countdown) {
     var $node = $(document);
 
 
@@ -34,7 +34,14 @@ define(['jquery', 'menu', 'countdown'], function($, menu, countdown) {
 
         init: function(config) {
             menu.init();
-            countdown.init(config.nextEventTime);
+
+            meetup.getNextEvent(function(err, event) {
+                console.log('next event', event);
+
+                map.init(document.getElementById('js_map-canvas'), event.venue);
+                countdown.init(event.time);
+            });
+
         }
     };
 });
