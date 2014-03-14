@@ -113,6 +113,8 @@ header {
 	height: 220px;
 	border: $circle-border;
 	border-radius: 50%;
+	overflow: hidden;
+
 	&.location_avatar {
 		position: absolute;
 		right: 0;
@@ -123,6 +125,7 @@ header {
 			display: none;
 		}
 	}
+	img { max-width: 100%; }
 }
 
 .icon{
