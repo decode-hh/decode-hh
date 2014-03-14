@@ -24,7 +24,7 @@ define(['jquery'], function($) {
                 d = $('.js_counter_days').get(0);
 
             var view = {
-                _el: { d: d, h: h, m: m, s: s },
+                _el: { d: d, h: h, m: m, /*s: s */},
                 _last: { d: 0, h: 0, m: 0, s: 0 },
 
                 _datasets: {
