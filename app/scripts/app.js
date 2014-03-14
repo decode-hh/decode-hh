@@ -35,9 +35,31 @@ define(['jquery', 'menu', 'meetup', 'map', 'countdown'], function($, menu, meetu
         init: function(config) {
             menu.init();
 
+            var $boundElements = $('[data-binding]');
+
+
             meetup.getNextEvent(function(err, event) {
                 console.log('next event', event);
 
+                $boundElements.each(function() {
+                    var $el = $(this),
+                        key = $el.data('binding'),
+                        value = event[key];
+
+                    if(key === 'shortDescription') {
+                        var $tmp = $('<div>'+event.description+'</div>');
+
+                        value = $tmp.find('p:first');
+                    }
+
+                    if(key === 'address') {
+                        var venue = event.venue;
+
+                        value = venue.name + ', ' + venue.address_1 + ', ' + venue.city;
+                    }
+
+                    $el.html(value);
+                });
                 map.init(document.getElementById('js_map-canvas'), event.venue);
                 countdown.init(event.time);
             });
