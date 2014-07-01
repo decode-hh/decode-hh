@@ -1,3 +1,4 @@
+@import 'vars';
 .menu {
 	padding-right: 0;
 	padding-left: 0;
@@ -6,13 +7,13 @@
 	li {
 		display: inline-block;
 		margin-left: 1.25rem;
-		transition: transform .5s ease;
-		transform: translateY(-150%);
+		transition: transform 0.5s ease;
+		transform: translate3d(-0,150%,0);
 		text-align: right;
 		@include reGap;
 		@include breakpoint(secondBreak){
 			display: block;
-			transform: translateY(0);
+			transform: translate3d(0,0,0);
 			text-align: center;
 		}
 	}
@@ -23,8 +24,8 @@
 	}
 	&.active {
 		li {
-			transition-delay: .15s;
-			transform: translateY(0);
+			transition-delay: 0.15s;
+			transform: translate3d(0,0,0);
 			&:nth-of-type(2) {
 				transition-delay: .2s;
 			}
@@ -39,7 +40,7 @@
 			}
 		}
 		+ .content {
-			margin-top: 0; 
+			margin-top: 0;
 			.menuButton{
 				span{
 					opacity: 0;
@@ -173,7 +174,7 @@ header {
 		&:after{
 			content: '\e805';
 		}
-	}	
+	}
 }
 
 .stage {
@@ -187,7 +188,7 @@ header {
 		@include breakpoint(firstBreak){
 			display: block;
 			width: 100%;
-		}	
+		}
 		ul {
 			line-height: 1.4;
 		}
@@ -261,7 +262,7 @@ header {
 				border-radius: 0 0 5px 5px;
 				line-height: 0px;
 				transform: rotateX(0deg) translateY(38px);
-				transform-origin: 50% 36px;	
+				transform-origin: 50% 36px;
 			}
 			&:nth-of-type(2):after {
 				transform: rotateX(180deg) translateY(38px);
