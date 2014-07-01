@@ -86,6 +86,8 @@ small {
 }
 
 blockquote {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	@include breakpoint(firstBreak) {
 		width: 25em;
 	}
