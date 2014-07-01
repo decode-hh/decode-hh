@@ -25,6 +25,8 @@ body{
 	font-family: 'Marvel', sans-serif;
 	line-height: 1.364;
 	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 p, ul, ol {
@@ -34,14 +36,11 @@ p, ul, ol {
 }
 
 h1, h2, h3, h4, h5, h6{
-	font-weight: 400;
+	font-weight: 700;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-/*h1 {
-  @include font-size(59px);
-  margin: 0 0 .509em 0;
-  line-height: $baseLineHeight*4;
-}*/
 
 h2, .h2 {
 	@include font-size(47px);
