@@ -108,6 +108,8 @@ blockquote {
 	&:before, &:after {
 		font-size: 8em;
 		width: .6em;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 	&:before {
 		position: absolute;

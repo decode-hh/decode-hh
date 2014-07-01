@@ -154,6 +154,7 @@ header {
 		font-size: 1.8rem;
 		font-family: 'fontello';
 		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 	&.twitter{
 		&:after{
