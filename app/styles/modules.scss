@@ -6,7 +6,7 @@
 	li {
 		display: inline-block;
 		margin-left: 1.25rem;
-		transition: transform 0.5s ease;
+		transition: transform .5s ease;
 		transform: translateY(-150%);
 		text-align: right;
 		@include reGap;
@@ -23,19 +23,19 @@
 	}
 	&.active {
 		li {
-			transition-delay: 0.15s;
+			transition-delay: .15s;
 			transform: translateY(0);
 			&:nth-of-type(2) {
-				transition-delay: 0.2s;
+				transition-delay: .2s;
 			}
 			&:nth-of-type(3) {
-				transition-delay: 0.25s;
+				transition-delay: .25s;
 			}
 			&:nth-of-type(4) {
-				transition-delay: 0.3s;
+				transition-delay: .3s;
 			}
 			&:nth-of-type(5) {
-				transition-delay: 0.35s;
+				transition-delay: .35s;
 			}
 		}
 		+ .content {
@@ -60,14 +60,14 @@
 	margin-top: -58px;
 	background-color: #fff;
 	box-shadow: 0 100px 0 $theme-color-dark;
-	transition: 0.5s cubic-bezier(.64,.05,.5,1.5);
+	transition: .5s cubic-bezier(.64, .05, .5, 1.5);
 	transition-property: transform, margin-top;
 	transform-origin: 0 0;
 	transform: translateZ(0);
 	z-index: 1;
 	@include breakpoint(secondBreak){
 		margin-top: -293px;
-		transition-duration: 0.65s;
+		transition-duration: .65s;
 	}
 }
 
@@ -103,7 +103,7 @@ header {
 			height: 6px;
 			background-color: $std-text-color;
 			content: '';
-			transition: 0.5s ease;
+			transition: .5s ease;
 			transition-property: opacity, transform;
 			transform-origin: 100% 50%;
 		}
@@ -129,7 +129,7 @@ header {
 		position: absolute;
 		right: 0;
 		bottom: -10px;
-		transition: transform 0.5s 0.5s cubic-bezier(.64,.05,.5,2);
+		transition: transform .5s .5s cubic-bezier(.64, .05, .5, 2);
 		transform-origin: 100% 100%;
 		@include breakpoint(firstBreak) {
 			display: none;
@@ -223,7 +223,7 @@ header {
 		text-align: center;
 	}
 	dd{
-		margin-bottom: 0.25rem;
+		margin-bottom: .25rem;
 	}
 	ul{
 		position: relative;
@@ -245,7 +245,7 @@ header {
 				height: 34px;
 				border-radius: 5px 5px 0 0;
 				background: linear-gradient(0deg, #f4f3f3 0%, #f1f1f1 100%);
-				box-shadow: inset 0 1px 0 #ffffff, 0 1px 1px rgba(0,0,0,0.25);
+				box-shadow: inset 0 1px 0 #ffffff, 0 1px 1px rgba(0, 0, 0, .25);
 				color: $std-text-color;
 				content: attr(data-time);
 				text-align: center;
@@ -269,14 +269,14 @@ header {
 		}
 		&.flip li:first-of-type:before {
 			visibility: hidden;
-			transition-delay: 0, 0.5s;
+			transition-delay: 0, .5s;
 			transition-timing-function: ease;
 			transition-duration: 1.25s, 0;
 			transition-property: transform, visibility;
 			transform: rotateX(-360deg);
 		}
 		&.flip li:nth-of-type(2):after {
-				transition: 0.5s ease 0.18s;
+				transition: .5s ease .18s;
 			transform: rotateX(0deg) translateY(38px);
 		}
 		&.flip li:first-of-type:after {
@@ -313,7 +313,7 @@ header {
 		}
 		&,
 		.map {
-			transition: border-radius 0.3s 0.5s ease;
+			transition: border-radius .3s .5s ease;
 		}
 		&:hover,
 		&:hover .map {
@@ -322,12 +322,12 @@ header {
 			pointer-events: auto;
 		}
 		&:hover .addressfield {
-			transition-delay: 0.2s;
+			transition-delay: .2s;
 			transform: translateY(0);
 		}
 		&:hover + .avatar.location_avatar {
 			transition-delay: 0s;
-			transform: scale(0.65);
+			transform: scale(.65);
 		}
 		.map {
 			width: 400px;
@@ -367,7 +367,7 @@ header {
 			border: 1px solid #ddd;
 			background-color: #fff;
 			color: $std-text-color;
-			transition: transform 0.65s 0s cubic-bezier(.64,.05,.5,2);
+			transition: transform .65s 0s cubic-bezier(.64,.05,.5,2);
 			transform: translateY(-200%);
 			label {
 				&:before {
@@ -377,7 +377,7 @@ header {
 					content: '\e800';
 					vertical-align: middle;
 					font-family: 'fontello';
-					transition: color 0.5s ease;
+					transition: color .5s ease;
 				}
 			}
 			input[type=text] {
@@ -516,10 +516,10 @@ footer {
 				border-radius: 50%;
 				background-color: $sec-text-color;
 				content: '';
-				transition: transform 0.4s cubic-bezier(.64,.05,.5,2);
+				transition: transform .4s cubic-bezier(.64,.05,.5,2);
 			}
 			&:hover:before {
-				transform: scale(0.88);
+				transform: scale(.88);
 			}
 			a {
 				position: absolute;
