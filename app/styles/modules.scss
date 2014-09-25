@@ -1,588 +1,600 @@
 @import 'vars';
 .menu {
-	padding-right: 0;
-	padding-left: 0;
-	text-align: right;
-	@include noGap;
-	li {
-		display: inline-block;
-		margin-left: 1.25rem;
-		transition: transform 0.5s ease;
-		transform: translate3d(-0,150%,0);
-		text-align: right;
-		@include reGap;
-		@include breakpoint(secondBreak){
-			display: block;
-			transform: translate3d(0,0,0);
-			text-align: center;
-		}
-	}
-	a {
-		display: block;
-		padding: .833em;
-		color: #fff;
-	}
-	&.active {
-		li {
-			transition-delay: 0.15s;
-			transform: translate3d(0,0,0);
-			&:nth-of-type(2) {
-				transition-delay: .2s;
-			}
-			&:nth-of-type(3) {
-				transition-delay: .25s;
-			}
-			&:nth-of-type(4) {
-				transition-delay: .3s;
-			}
-			&:nth-of-type(5) {
-				transition-delay: .35s;
-			}
-		}
-		+ .content {
-			margin-top: 0;
-			.menuButton{
-				span{
-					opacity: 0;
-				}
-				&:before{
-					transform: rotateZ(-45deg);
-				}
-				&:after{
-					transform: rotateZ(45deg);
-				}
-			}
-		}
-	}
+    position: absolute;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: right;
+    transform: translateY(-100%);
+    @include noGap;
+    li {
+        display: inline-block;
+        margin-left: 1.25rem;
+        transition: transform 0.5s ease;
+        transform: translate3d(-0,150%,0);
+        text-align: right;
+        @include reGap;
+        @include breakpoint(secondBreak){
+            display: block;
+            transform: translate3d(0,0,0);
+            text-align: center;
+        }
+    }
+    a {
+        display: block;
+        padding: .833em;
+        color: #fff;
+    }
+    &.active {
+        transform: translateY(0);
+        li {
+            transition-delay: 0.15s;
+            transform: translate3d(0,0,0);
+            &:nth-of-type(2) {
+                transition-delay: .2s;
+            }
+            &:nth-of-type(3) {
+                transition-delay: .25s;
+            }
+            &:nth-of-type(4) {
+                transition-delay: .3s;
+            }
+            &:nth-of-type(5) {
+                transition-delay: .35s;
+            }
+        }
+        + .content {
+            transform: translate3d(0,58px,0);
+            @include breakpoint(secondBreak){
+                transform: translate3d(0,293px,0);
+            }
+            .menuButton{
+                span{
+                    opacity: 0;
+                }
+                &:before{
+                    transform: rotateZ(-45deg);
+                }
+                &:after{
+                    transform: rotateZ(45deg);
+                }
+            }
+        }
+    }
 }
 
 .content {
-	position: relative;
-	margin-top: -58px;
-	background-color: #fff;
-	box-shadow: 0 100px 0 $theme-color-dark;
-	transition: .5s cubic-bezier(.64, .05, .5, 1.5);
-	transition-property: transform, margin-top;
-	transform-origin: 0 0;
-	transform: translateZ(0);
-	z-index: 1;
-	@include breakpoint(secondBreak){
-		margin-top: -293px;
-		transition-duration: .65s;
-	}
+    position: relative;
+    background-color: #fff;
+    transition: transform .5s cubic-bezier(.64, .05, .5, 1.5);
+    transform-origin: 0 0;
+    transform: translate3d(0,0,0);
+    z-index: 1;
+    @include breakpoint(secondBreak){
+        transition-duration: .65s;
+    }
 }
 
 header {
-	.wrapper {
-		position: relative;
-	}
-	h1 {
-		margin: 0;
-		padding: .750rem 0;
-		font-size: 0;
-		line-height: 0;
-		svg {
-			display: inline-block;
-			height: 64px;
-		}
-	}
-	.menuButton {
-		position: absolute;
-		top: 0;
-		right: .833rem;
-		display: block;
-		margin: 1.042rem 0;
-		width: 2.182rem;
-		height: 2.182rem;
-		cursor: pointer;
-		span,
-		&:before,
-		&:after {
-			display: block;
-			margin-top: 11px;
-			width: 100%;
-			height: 6px;
-			background-color: $std-text-color;
-			content: '';
-			transition: .5s ease;
-			transition-property: opacity, transform;
-			transform-origin: 100% 50%;
-		}
-		&:before{
-			margin-top: 3px;
-		}
-	}
+    .wrapper {
+        position: relative;
+        text-align: justify;
+        line-height: 0;
+        &::after{
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    h1 {
+        display: inline-block;
+        margin: 0;
+        padding: .750rem 0;
+        font-size: 0;
+        line-height: 0;
+        vertical-align: middle;
+        svg {
+            display: inline-block;
+            height: 64px;
+        }
+    }
+    .menuButton {
+        // position: absolute;
+        // top: 0;
+        // right: .833rem;
+        // display: block;
+        display: inline-block;
+        width: 2.182rem;
+        height: 2.182rem;
+        cursor: pointer;
+        vertical-align: middle;
+        span,
+        &:before,
+        &:after {
+            display: block;
+            margin-top: 11px;
+            width: 100%;
+            height: 6px;
+            background-color: $std-text-color;
+            content: '';
+            transition: .5s ease;
+            transition-property: opacity, transform;
+            transform-origin: 100% 50%;
+        }
+        &:before{
+            margin-top: 3px;
+        }
+    }
 }
 
 .avatar {
-	@include breakpoint(secondBreak) {
-		display: block;
-		margin: 0 auto;
-	}
-	box-sizing: border-box;
-	width: 220px;
-	height: 220px;
-	border: $circle-border;
-	border-radius: 50%;
-	overflow: hidden;
+    @include breakpoint(secondBreak) {
+        display: block;
+        margin: 0 auto;
+    }
+    box-sizing: border-box;
+    width: 220px;
+    height: 220px;
+    border: $circle-border;
+    border-radius: 50%;
+    overflow: hidden;
 
-	&.location_avatar {
-		position: absolute;
-		right: 0;
-		bottom: -10px;
-		transition: transform .5s .5s cubic-bezier(.64, .05, .5, 2);
-		transform-origin: 100% 100%;
-		@include breakpoint(firstBreak) {
-			display: none;
-		}
-	}
-	img { max-width: 100%; }
+    &.location_avatar {
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+        transition: transform .5s .5s cubic-bezier(.64, .05, .5, 2);
+        transform-origin: 100% 100%;
+        @include breakpoint(firstBreak) {
+            display: none;
+        }
+    }
+    img { max-width: 100%; }
 }
 
 .icon{
-	text-align: center;
-	&:before {
-		display: inline-block;
-		height: 100%;
-		content: '';
-		vertical-align: middle;
-	}
-	&:after {
-		display: inline-block;
-		content: '';
-		vertical-align: middle;
-		font-size: 1.8rem;
-		font-family: 'fontello';
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-	&.twitter{
-		&:after{
-			content: '\e801';
-		}
-	}
-	&.googleplus{
-		&:after{
-			content: '\e803';
-		}
-	}
-	&.facebook{
-		&:after{
-			content: '\e804';
-		}
-	}
-	&.meetup{
-		&:after{
-			content: '\e805';
-		}
-	}
+    text-align: center;
+    &:before {
+        display: inline-block;
+        height: 100%;
+        content: '';
+        vertical-align: middle;
+    }
+    &:after {
+        display: inline-block;
+        content: '';
+        vertical-align: middle;
+        font-size: 1.8rem;
+        font-family: 'fontello';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    &.twitter{
+        &:after{
+            content: '\e801';
+        }
+    }
+    &.googleplus{
+        &:after{
+            content: '\e803';
+        }
+    }
+    &.facebook{
+        &:after{
+            content: '\e804';
+        }
+    }
+    &.meetup{
+        &:after{
+            content: '\e805';
+        }
+    }
 }
 
 .stage {
-	@include noGap;
-	padding: 30px 0;
-	.info {
-		@include reGap;
-		display: inline-block;
-		width: 50%;
-		vertical-align: top;
-		@include breakpoint(firstBreak){
-			display: block;
-			width: 100%;
-		}
-		ul {
-			line-height: 1.4;
-		}
-	}
+    @include noGap;
+    padding: 30px 0;
+    .info {
+        @include reGap;
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+        @include breakpoint(firstBreak){
+            display: block;
+            width: 100%;
+        }
+        ul {
+            line-height: 1.4;
+        }
+    }
 }
 
 .counter_container{
-	@include noGap;
+    @include noGap;
 }
 
 .counter {
-	@include reGap;
-	display: inline-block;
-	margin-right: 20px;
-	vertical-align: top;
-	@include breakpoint(secondBreak){
-		margin-right: 16px;
-		&:nth-of-type(3){
-			margin-right: 0;
-		}
-		&:last-of-type{
-			display: none;
-		}
-	}
-	&:last-of-type{
-			display: none;
-	}
-	dt, dd{
-		margin: 0;
-		padding: 0;
-	}
-	dt{
-		text-align: center;
-	}
-	dd{
-		margin-bottom: .25rem;
-	}
-	ul{
-		position: relative;
-		margin-bottom: 0;
-		width: 72px;
-		height: 72px;
-		perspective: 200px;
-		perspective-origin: center center;
-		li{
-			position: absolute;
-			&:before,
-			&:after {
-				position: absolute;
-				z-index: 0;
-				visibility: visible;
-				overflow: hidden;
-				padding: 0;
-				width: 72px;
-				height: 34px;
-				border-radius: 5px 5px 0 0;
-				background: linear-gradient(0deg, #f4f3f3 0%, #f1f1f1 100%);
-				box-shadow: inset 0 1px 0 #ffffff, 0 1px 1px rgba(0, 0, 0, .25);
-				color: $std-text-color;
-				content: attr(data-time);
-				text-align: center;
-				font-size: 3.273rem;
-				line-height: 3.273rem;
-				transform-origin: 50% 36px;
-				backface-visibility: hidden;
-			}
-			&:first-of-type:before {
-				z-index: 1;
-			}
-			&:after {
-				border-radius: 0 0 5px 5px;
-				line-height: 0px;
-				transform: rotateX(0deg) translateY(38px);
-				transform-origin: 50% 36px;
-			}
-			&:nth-of-type(2):after {
-				transform: rotateX(180deg) translateY(38px);
-			}
-		}
-		&.flip li:first-of-type:before {
-			visibility: hidden;
-			transition-delay: 0, .5s;
-			transition-timing-function: ease;
-			transition-duration: 1.25s, 0;
-			transition-property: transform, visibility;
-			transform: rotateX(-360deg);
-		}
-		&.flip li:nth-of-type(2):after {
-				transition: .5s ease .18s;
-			transform: rotateX(0deg) translateY(38px);
-		}
-		&.flip li:first-of-type:after {
-			visibility: hidden;
-			transition-delay: 1s, 0.75s;
-			transition-timing-function: ease;
-			transition-duration: 1.25s, 0;
-			transition-property: -webkit-transform, visibility;
-			transform: rotateX(-180deg) translateY(38px);
-		}
-	}
+    @include reGap;
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+    @include breakpoint(secondBreak){
+        margin-right: 16px;
+        &:nth-of-type(3){
+            margin-right: 0;
+        }
+        &:last-of-type{
+            display: none;
+        }
+    }
+    &:last-of-type{
+            display: none;
+    }
+    dt, dd{
+        margin: 0;
+        padding: 0;
+    }
+    dt{
+        text-align: center;
+    }
+    dd{
+        margin-bottom: .25rem;
+    }
+    ul{
+        position: relative;
+        margin-bottom: 0;
+        width: 72px;
+        height: 72px;
+        perspective: 200px;
+        perspective-origin: center center;
+        li{
+            position: absolute;
+            &:before,
+            &:after {
+                position: absolute;
+                z-index: 0;
+                visibility: visible;
+                overflow: hidden;
+                padding: 0;
+                width: 72px;
+                height: 34px;
+                border-radius: 5px 5px 0 0;
+                background: linear-gradient(0deg, #f4f3f3 0%, #f1f1f1 100%);
+                box-shadow: inset 0 1px 0 #ffffff, 0 1px 1px rgba(0, 0, 0, .25);
+                color: $std-text-color;
+                content: attr(data-time);
+                text-align: center;
+                font-size: 3.273rem;
+                line-height: 3.273rem;
+                transform-origin: 50% 36px;
+                backface-visibility: hidden;
+            }
+            &:first-of-type:before {
+                z-index: 1;
+            }
+            &:after {
+                border-radius: 0 0 5px 5px;
+                line-height: 0px;
+                transform: rotateX(0deg) translateY(38px);
+                transform-origin: 50% 36px;
+            }
+            &:nth-of-type(2):after {
+                transform: rotateX(180deg) translateY(38px);
+            }
+        }
+        &.flip li:first-of-type:before {
+            visibility: hidden;
+            transition-delay: 0, .5s;
+            transition-timing-function: ease;
+            transition-duration: 1.25s, 0;
+            transition-property: transform, visibility;
+            transform: rotateX(-360deg);
+        }
+        &.flip li:nth-of-type(2):after {
+                transition: .5s ease .18s;
+            transform: rotateX(0deg) translateY(38px);
+        }
+        &.flip li:first-of-type:after {
+            visibility: hidden;
+            transition-delay: 1s, 0.75s;
+            transition-timing-function: ease;
+            transition-duration: 1.25s, 0;
+            transition-property: -webkit-transform, visibility;
+            transform: rotateX(-180deg) translateY(38px);
+        }
+    }
 }
 
 .location_map {
-	position: relative;
-	display: inline-block;
-	width: 50%;
-	@include breakpoint(firstBreak){
-		display: block;
-		width: 100%;
-		pointer-events: none;
-	}
-	.mapwrap {
-		position: relative;
-		display: inline-block;
-		overflow: hidden;
-		box-sizing: border-box;
-		border: $circle-border;
-		border-radius: 50%;
-		background-color: $circle-border-color;
-		@include breakpoint(firstBreak){
-			display: block;
-			border-radius: 0;
-		}
-		&,
-		.map {
-			transition: border-radius .3s .5s ease;
-		}
-		&:hover,
-		&:hover .map {
-			border-radius: 0;
-			transition-delay: 0s;
-			pointer-events: auto;
-		}
-		&:hover .addressfield {
-			transition-delay: .2s;
-			transform: translateY(0);
-		}
-		&:hover + .avatar.location_avatar {
-			transition-delay: 0s;
-			transform: scale(.65);
-		}
-		.map {
-			width: 400px;
-			height: 400px;
-			border-radius: 50%;
-			-webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
-			pointer-events: none;
-			@include breakpoint(firstBreak){
-				width: 100%;
-				border-radius: 0;
-				-webkit-mask: none;
-			}
-			@include breakpoint(secondBreak){
-				height: 300px;
-			}
-			.gm-style {
-				color: green;
-				div:nth-child(2) {
-					-webkit-flow-into: google-logo;
-					flow-into: google-logo;
-				}
-			}
-			.gm-style-cc {
-				display: none;
-			}
-		}
-		.addressfield {
-			@include reGap;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 1;
-			display: inline-block;
-			margin: 5px;
-			padding: 10px;
-			outline: 0;
-			border: 1px solid #ddd;
-			background-color: #fff;
-			color: $std-text-color;
-			transition: transform .65s 0s cubic-bezier(.64,.05,.5,2);
-			transform: translateY(-200%);
-			label {
-				&:before {
-					display: inline-block;
-					height: 100%;
-					color: #ddd;
-					content: '\e800';
-					vertical-align: middle;
-					font-family: 'fontello';
-					transition: color .5s ease;
-				}
-			}
-			input[type=text] {
-				display: inline-block;
-				height: 100%;
-				outline: none;
-				border: none;
-				vertical-align: middle;
-				&:focus + label:before {
-					color: $theme-color;
-				}
-			}
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    @include breakpoint(firstBreak){
+        display: block;
+        width: 100%;
+        pointer-events: none;
+    }
+    .mapwrap {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: $circle-border;
+        border-radius: 50%;
+        background-color: $circle-border-color;
+        @include breakpoint(firstBreak){
+            display: block;
+            border-radius: 0;
+        }
+        &,
+        .map {
+            transition: border-radius .3s .5s ease;
+        }
+        &:hover,
+        &:hover .map {
+            border-radius: 0;
+            transition-delay: 0s;
+            pointer-events: auto;
+        }
+        &:hover .addressfield {
+            transition-delay: .2s;
+            transform: translateY(0);
+        }
+        &:hover + .avatar.location_avatar {
+            transition-delay: 0s;
+            transform: scale(.65);
+        }
+        .map {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            -webkit-mask: linear-gradient(0deg,#fff 0%, #fff 100%); /* This hack "enables" the functionallity for 'clip-path' to work with Google Maps API v3 in Google Chrome (Seems to a bug in Chrome) */
+            pointer-events: none;
+            @include breakpoint(firstBreak){
+                width: 100%;
+                border-radius: 0;
+                -webkit-mask: none;
+            }
+            @include breakpoint(secondBreak){
+                height: 300px;
+            }
+            .gm-style {
+                color: green;
+                div:nth-child(2) {
+                    -webkit-flow-into: google-logo;
+                    flow-into: google-logo;
+                }
+            }
+            .gm-style-cc {
+                display: none;
+            }
+        }
+        .addressfield {
+            @include reGap;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            outline: 0;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            color: $std-text-color;
+            transition: transform .65s 0s cubic-bezier(.64,.05,.5,2);
+            transform: translateY(-200%);
+            label {
+                &:before {
+                    display: inline-block;
+                    height: 100%;
+                    color: #ddd;
+                    content: '\e800';
+                    vertical-align: middle;
+                    font-family: 'fontello';
+                    transition: color .5s ease;
+                }
+            }
+            input[type=text] {
+                display: inline-block;
+                height: 100%;
+                outline: none;
+                border: none;
+                vertical-align: middle;
+                &:focus + label:before {
+                    color: $theme-color;
+                }
+            }
 
-			display: none;
-		}
-	}
-	.google-logo {
-		z-index: 5;
-		margin: -34px 0 0 8px;
-		height: 24px;
-		pointer-events: prevent-default;
-		-webkit-flow-from: google-logo;
-		flow-from: google-logo;
-	}
+            display: none;
+        }
+    }
+    .google-logo {
+        z-index: 5;
+        margin: -34px 0 0 8px;
+        height: 24px;
+        pointer-events: prevent-default;
+        -webkit-flow-from: google-logo;
+        flow-from: google-logo;
+    }
 }
 
 .speaker_avatar {
-	width: 30%;
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	margin-bottom: 1.363636364rem;
-	@include breakpoint(firstBreak) {
-		width: 45%;
-	}
-	@include breakpoint(secondBreak) {
-		width: 100%;
-		text-align: center;
-	}
-	.twitter {
-		position: absolute;
-		bottom: 0;
-		left: 145px;
-		width: 65px;
-		height: 65px;
-		border: 5px solid #fff;
-		border-radius: 50%;
-		background: $theme-gradient;
-		color: #fff;
-		@include breakpoint(secondBreak) {
-			position: relative;
-			display: inline-block;
-			margin-top: -75px;
-			margin-left: 145px;
-			left: 0;
-			vertical-align: bottom;
-		}
-	}
+    width: 30%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 1.363636364rem;
+    @include breakpoint(firstBreak) {
+        width: 45%;
+    }
+    @include breakpoint(secondBreak) {
+        width: 100%;
+        text-align: center;
+    }
+    .twitter {
+        position: absolute;
+        bottom: 0;
+        left: 145px;
+        width: 65px;
+        height: 65px;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        background: $theme-gradient;
+        color: #fff;
+        @include breakpoint(secondBreak) {
+            position: relative;
+            display: inline-block;
+            margin-top: -75px;
+            margin-left: 145px;
+            left: 0;
+            vertical-align: bottom;
+        }
+    }
 }
 
 #speaker {
-	h2 {
-		margin-top: -.255319149em;
-	}
-	article {
-		@include noGap;
-		@include breakpoint(secondBreak) {
-			margin-bottom: .681818182rem;
-		}
-		margin-bottom: 2.727272727rem;
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+    h2 {
+        margin-top: -.255319149em;
+    }
+    article {
+        @include noGap;
+        @include breakpoint(secondBreak) {
+            margin-bottom: .681818182rem;
+        }
+        margin-bottom: 2.727272727rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .speaker_text h4:before {
-	padding: 0 .208em 0 0;
-	content: '#';
+    padding: 0 .208em 0 0;
+    content: '#';
 }
 
 .speaker_text {
-	display: inline-block;
-	vertical-align: top;
-	margin-top: .618rem;
-	width: 70%;
-	box-sizing: border-box;
-	@include reGap;
-	@include breakpoint(firstBreak) {
-		margin: 0;
-		width: 55%;
-	}
-	@include breakpoint(secondBreak) {
-		margin: 0;
-		width: 100%;
-	}
-	h3, h4 {
-		@include breakpoint(secondBreak) {
-			text-align: center;
-		}
-	}
-	h4:before {
-		padding: 0 .208em 0 0;
-		content: '#';
-	}
+    display: inline-block;
+    vertical-align: top;
+    margin-top: .618rem;
+    width: 70%;
+    box-sizing: border-box;
+    @include reGap;
+    @include breakpoint(firstBreak) {
+        margin: 0;
+        width: 55%;
+    }
+    @include breakpoint(secondBreak) {
+        margin: 0;
+        width: 100%;
+    }
+    h3, h4 {
+        @include breakpoint(secondBreak) {
+            text-align: center;
+        }
+    }
+    h4:before {
+        padding: 0 .208em 0 0;
+        content: '#';
+    }
 }
 
 #about {
-	display: table;
+    display: table;
 }
 
 footer {
-	text-align: center;
-	padding-bottom: 50px;
-	ul {
-		@include noGap;
-		margin: 0;
-		li {
-			@include reGap;
-			@include breakpoint(thirdBreak) {
-				margin: 0 10px 20px;
-			}
-			position: relative;
-			display: inline-block;
-			margin: 0 20px;
-			width: 65px;
-			height: 65px;
-			border: 3px solid $sec-text-color;
-			border-radius: 50%;
-			&:before {
-				position: absolute;
-				top: -1px;
-				right: -1px;
-				bottom: -1px;
-				left: -1px;
-				border-radius: 50%;
-				background-color: $sec-text-color;
-				content: '';
-				transition: transform .4s cubic-bezier(.64,.05,.5,2);
-			}
-			&:hover:before {
-				transform: scale(.88);
-			}
-			a {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				color: $theme-color;
-				&.meetup{
-				}
-			}
-		}
-	}
-	a {
-		display: inline-block;
-		color: #fff;
-		&.mailaddress {
-			margin-bottom: 1.364rem;
-		}
-	}
+    text-align: center;
+    padding-bottom: 50px;
+    ul {
+        @include noGap;
+        margin: 0;
+        li {
+            @include reGap;
+            @include breakpoint(thirdBreak) {
+                margin: 0 10px 20px;
+            }
+            position: relative;
+            display: inline-block;
+            margin: 0 20px;
+            width: 65px;
+            height: 65px;
+            border: 3px solid $sec-text-color;
+            border-radius: 50%;
+            &:before {
+                position: absolute;
+                top: -1px;
+                right: -1px;
+                bottom: -1px;
+                left: -1px;
+                border-radius: 50%;
+                background-color: $sec-text-color;
+                content: '';
+                transition: transform .4s cubic-bezier(.64,.05,.5,2);
+            }
+            &:hover:before {
+                transform: scale(.88);
+            }
+            a {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                color: $theme-color;
+                &.meetup{
+                }
+            }
+        }
+    }
+    a {
+        display: inline-block;
+        color: #fff;
+        &.mailaddress {
+            margin-bottom: 1.364rem;
+        }
+    }
 }
 
 
 .h4 + .counter_container {
-	margin-top: -26px;
+    margin-top: -26px;
 }
 
 .user {
-	text-align: center;
-	li {
-		@include noGap;
-		display: inline-block;
-		vertical-align: top;
-		&:first-child figure {
-			padding-left: 0;
-		}
-		&:last-child figure {
-			padding-right: 0;
-		}
-	}
-	figure {
-		@include reGap;
-		margin: 0 0 1.363636364em 0;
-		padding: 0 .55em;
-		width: 6em;
-	}
-	img {
-		display: block;
-		margin: 0 auto .6em auto;
-		border: 8px solid #fff;
-		border-radius: 50%;
-		width: 128px;
-		height: 128px;
-	}
-	figcaption {
-		@include reGap;
-		span, a {
-			display: block;
-			color: $std-text-color;
-			text-align: center;
-			line-height: 1.363636364;
-		}
-	}
+    text-align: center;
+    li {
+        @include noGap;
+        display: inline-block;
+        vertical-align: top;
+        &:first-child figure {
+            padding-left: 0;
+        }
+        &:last-child figure {
+            padding-right: 0;
+        }
+    }
+    figure {
+        @include reGap;
+        margin: 0 0 1.363636364em 0;
+        padding: 0 .55em;
+        width: 6em;
+    }
+    img {
+        display: block;
+        margin: 0 auto .6em auto;
+        border: 8px solid #fff;
+        border-radius: 50%;
+        width: 128px;
+        height: 128px;
+    }
+    figcaption {
+        @include reGap;
+        span, a {
+            display: block;
+            color: $std-text-color;
+            text-align: center;
+            line-height: 1.363636364;
+        }
+    }
 }
