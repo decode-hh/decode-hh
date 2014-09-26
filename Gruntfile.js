@@ -148,14 +148,14 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
       options: {
-        sourcemap: true,
+        //sourcemap: true,
         loadPath: 'bower_components'
       },
       dist: {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
+          src: ['main.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
         }]
@@ -164,7 +164,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
+          src: ['main.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
         }]
