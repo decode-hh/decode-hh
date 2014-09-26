@@ -148,7 +148,7 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
       options: {
-        //sourcemap: true,
+        sourcemap: 'auto',
         loadPath: 'bower_components'
       },
       dist: {
