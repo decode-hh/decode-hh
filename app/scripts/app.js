@@ -31,7 +31,6 @@ define(['jquery', 'menu', 'meetup', 'map', 'countdown'], function($, menu, meetu
         countdown: countdown,
 
         init: function(data){
-            console.log('data', data);
             menu.init();
 
             var $targetElements = $('[data-target]');
@@ -67,7 +66,7 @@ define(['jquery', 'menu', 'meetup', 'map', 'countdown'], function($, menu, meetu
                     $event.find('[data-binding="date"]').html(date.toDateString() + ', ' + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes());
                     $event.find('[data-binding="image"]').attr('src', event.location.image);
 
-                    //map.init($event.find('#js_map-canvas'), event.location); Currently working on this
+                    map.init($event.find('#js_map-canvas')[0], event.location);
 
                     $el.replaceWith($event);
                     countdown.init(event.date);

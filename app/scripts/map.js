@@ -1,60 +1,59 @@
 define('map', ['async!https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false!callback'], function(foo) {
-    var getGeo = function(address){
-        var addressString = address.street + ' ' + address.number + ',' + address.zip + ' ' + address.city;
 
-        var geocoder = new google.maps.Geocoder();
+    var placesSearch = function(canvasEl, address, callback){
+        var locationRequest = {
+            location: {lat:53.558572,lng:9.9278215},
+            radius: '7000',
+            query: [address.name, address.street + ' ' + address.number, address.zip + ' ' + address.city].join(',')
+        };
 
-        geocoder.geocode( {'address': addressString}, function(results, status) {
-            console.log('geo', results[0].geometry.location);
-            if (status == google.maps.GeocoderStatus.OK) {
+        service = new google.maps.places.PlacesService(canvasEl);
+        service.textSearch(locationRequest, function(results, status){
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                if (callback){
+                    callback(canvasEl, results, setMarker);
+                }
+
                 return results;
 
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+            } else{
+                alert('Location was not successful for the following reason: ' + status);
             }
         });
     };
 
-    var createMap = function(canvasEl, results){
+    var createMap = function(canvasEl, results, callback){
+        var location = results[0].geometry.location || {lat:53.558572,lng:9.9278215}; // std is location of Hamburg
         var mapOptions = {
             zoom: 16,
-            center: results[0].geometry.location,
+            center: location,
             disableDefaultUI: true
         };
 
-        return new google.maps.Map(canvasEl, mapOptions);
-    };
-
-    var setMarker = function(results, map, existingMarker){
-        if (existingMarker){
-            var marker = existingMarker;
-            marker.position = results[0].geometry.location;
-        } else {
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
-            });
+        var map = new google.maps.Map(canvasEl, mapOptions);
+        if (callback){
+            callback(map, location);
         }
+
+        return map;
     };
 
-    var placesSearch = function(results, map){
-        var locationRequest = {
-            location: results[0].geometry.location,
-            radius: '500',
-            query: address.name
-        };
-
-        service = new google.maps.places.PlacesService(map);
-        service.textSearch(locationRequest, function(results, status){
-            setMarker(results, map);
-            console.log(map.center);
-            map.center = results[0].geometry.location;
+    var setMarker = function(map, location, recenter){
+        var marker = new google.maps.Marker({
+            map: map,
+            position: location
         });
+
+        if (recenter){
+            map.setCenter(results[0].geometry.location);
+        }
+
+        return marker;
     };
 
     return {
         init: function(canvasEl, address) {
-
+            var place = placesSearch(canvasEl, address, createMap);
         }
     };
 

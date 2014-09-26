@@ -13,7 +13,6 @@ require(['app', 'jquery'], function (app, $) {
         $.getJSON("../events/2014-10-01.json", function(data){
             var event = data;
             app.init(data);
-            console.log('Test',event);
         });
 
     });
