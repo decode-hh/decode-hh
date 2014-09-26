@@ -10,8 +10,11 @@ require(['app', 'jquery'], function (app, $) {
     'use strict';
 
     $(function() {
-        app.init({
-            nextEventTime: '12 4 2013 19:00'
+        $.getJSON("../events/2014-10-01.json", function(data){
+            var event = data;
+            app.init(data);
+            console.log('Test',event);
         });
+
     });
 });

@@ -1,0 +1,33 @@
+{
+    "event":{
+        "title": "#decode #10 2014",
+        "date": "2014-10-01 19:00",
+        "shortdescription": "",
+        "location":{
+            "name": "SinnerSchrader GmbH",
+            "street": "Völckersstraße",
+            "number": "38",
+            "zip": "22765",
+            "city": "Hamburg",
+            "image": "images/location_s2.jpg"
+        },
+        "talks": [{
+            "title": "CSS architecture / Maintainable CSS",
+            "speaker": {
+                "name": "Veit Lehmann",
+                "twitter": "levito",
+                "avatar": ""
+            },
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint vero autem nostrum error, nulla et in. Hic dolorum asperiores neque vel cum ex reiciendis fugit fuga, modi sapiente, mollitia itaque!"
+        },
+        {
+            "title": "Blalvlal",
+            "speaker": {
+                "name": "Matthias Lau",
+                "twitter": "matthiaslau",
+                "avatar": ""
+            },
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint vero autem nostrum error, nulla et in. Hic dolorum asperiores neque vel cum ex reiciendis fugit fuga, modi sapiente, mollitia itaque!"
+        }]
+    }
+}

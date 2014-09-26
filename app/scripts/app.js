@@ -9,9 +9,7 @@ define(['jquery', 'menu', 'meetup', 'map', 'countdown'], function($, menu, meetu
         tweets = data;
         lastTweet = tweets[0];
         var lastTweetDate = new Date(lastTweet.created_at);
-        var computedText =
-
-            createTweet(lastTweet.text, lastTweet.user.screen_name, lastTweetDate);
+        var computedText = createTweet(lastTweet.text, lastTweet.user.screen_name, lastTweetDate);
     });
 
     function wrap( str ) {
@@ -32,38 +30,88 @@ define(['jquery', 'menu', 'meetup', 'map', 'countdown'], function($, menu, meetu
         menu: menu,
         countdown: countdown,
 
-        init: function(config) {
+        init: function(data){
+            console.log('data', data);
             menu.init();
 
-            var $boundElements = $('[data-binding]');
+            var $targetElements = $('[data-target]');
 
+            $targetElements.each(function() {
+                var $el = $(this),
+                    key = $el.data('target');
 
-            meetup.getNextEvent(function(err, event) {
-                console.log('next event', event);
+                if (key === 'talk'){
+                    var talks = data.event.talks,
+                        template = $el.find('[data-template=' + key + ']').html(),
+                        talknodes = [];
 
-                $boundElements.each(function() {
-                    var $el = $(this),
-                        key = $el.data('binding'),
-                        value = event[key];
+                    talks.forEach(function(talk,i){
+                        var $talk = $(template).clone();
+                        $talk.find('[data-binding="avatar"]').attr('src', talk.speaker.avatar);
+                        $talk.find('[data-binding="twitter"]').attr('href', 'https://twitter.com/' + talk.speaker.twitter);
+                        $talk.find('[data-binding="name"]').html(talk.title);
+                        $talk.find('[data-binding="description"]').html(talk.description);
 
-                    if(key === 'shortDescription') {
-                        var $tmp = $('<div>'+event.description+'</div>');
+                        talknodes.push($talk);
+                    });
 
-                        value = $tmp.find('p:first');
-                    }
+                    $el.append(talknodes);
 
-                    if(key === 'address') {
-                        var venue = event.venue;
+                } else if (key === 'event'){
+                    var event = data.event,
+                        $event = $el.clone(),
+                        date = new Date(event.date);
 
-                        value = venue.name + ', ' + venue.address_1 + ', ' + venue.city;
-                    }
+                    $event.find('[data-binding="title"]').html(event.title);
+                    $event.find('[data-binding="location"]').html(event.location.name + ', ' + event.location.street + ' ' + event.location.number);
+                    $event.find('[data-binding="date"]').html(date.toDateString() + ', ' + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes());
+                    $event.find('[data-binding="image"]').attr('src', event.location.image);
 
-                    $el.html(value);
-                });
-                map.init(document.getElementById('js_map-canvas'), event.venue);
-                countdown.init(event.time);
+                    //map.init($event.find('#js_map-canvas'), event.location); Currently working on this
+
+                    $el.replaceWith($event);
+                    countdown.init(event.date);
+                }
             });
-
         }
     };
+
+    // return {
+    //     menu: menu,
+    //     countdown: countdown,
+
+    //     init: function(config) {
+    //         menu.init();
+
+    //         var $boundElements = $('[data-binding]');
+
+
+    //         meetup.getNextEvent(function(err, event) {
+    //             console.log('next event', event);
+
+    //             $boundElements.each(function() {
+    //                 var $el = $(this),
+    //                     key = $el.data('binding'),
+    //                     value = event[key];
+
+    //                 if(key === 'shortDescription') {
+    //                     var $tmp = $('<div>'+event.description+'</div>');
+
+    //                     value = $tmp.find('p:first');
+    //                 }
+
+    //                 if(key === 'address') {
+    //                     var venue = event.venue;
+
+    //                     value = venue.name + ', ' + venue.address_1 + ', ' + venue.city;
+    //                 }
+
+    //                 $el.html(value);
+    //             });
+    //             map.init(document.getElementById('js_map-canvas'), event.venue);
+    //             countdown.init(event.time);
+    //         });
+
+    //     }
+    // };
 });

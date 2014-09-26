@@ -1,0 +1,31 @@
+{
+    "event":{
+        "title": "",
+        "date": "",
+        "location":{
+            "street": "",
+            "number": "",
+            "zip": "",
+            "city": "",
+            "image": ""
+        },
+        "talks": [{
+             "title": "",
+             "speaker": {
+                "name": "",
+                "twitter": "",
+                "avatar": ""
+            },
+            "decription": ""
+        },
+        {
+            "title": "",
+            "speaker": {
+                "name": "",
+                "twitter": "",
+                "avatar": ""
+            },
+            "decription": ""
+        }]
+    }
+}

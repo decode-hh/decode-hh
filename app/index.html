@@ -21,7 +21,7 @@
             <li><a href="">Contact</a></li>
             <li><a href="">Imprint</a></li>
         </ul>
-        
+
         <div class="content">
             <!--[if lt IE 10]>
                 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -40,17 +40,16 @@
             </header>
             <section class="stage">
                 <div class="wrapper">
-                    <article>
+                    <article data-target="event">
                         <div class="info">
-                            <h2 data-binding="name">loading...</h2>
-                            <h3 data-binding="address" class="h4"></h3>
+                            <h2 data-binding="title">loading...</h2>
+                            <h3 data-binding="location" class="h4"></h3>
+                            <h3 data-binding="date" class="h4">TBA</h3>
                             <!--<ul>-->
                                 <!--<li>CSS architecture / Maintainable CSS</li>-->
                                 <!--<li>The Big Picture: Responsive Images in Action</li>-->
                             <!--</ul>-->
                             <div data-binding="shortDescription"></div>
-
-                            <h3 class="h4">Next Meetup in:</h3>
                             <div class="counter_container">
                                 <dl class="counter">
                                     <dd>
@@ -99,43 +98,33 @@
                                 </div>
                                 <div id="js_map-canvas" class="map circle"></div>
                             </div>
-                            <div class="avatar location_avatar"><img src="images/location_s2.jpg" alt=""></div>
+                            <div class="avatar location_avatar"><img src="images/location_s2.jpg" alt="" data-binding="image" /></div>
                             <div class="google-logo"></div>
                         </figure>
                     </article>
                 </div>
             </section>
-            <section id="speaker">
-                <div class="wrapper">
+            <section id="talks" class="talks">
+                <div class="wrapper" data-target="talk">
                     <h2>Speaker</h2>
-                    <article>
-                        <div class="speaker_avatar">
-                            <img src="images/speakerVeitLehmann.jpg" class="avatar" alt="" />
-                            <a class="icon twitter" href="https://twitter.com/levito" title="Twitter"></a>
-                        </div>
-                        <div class="speaker_text">
-                            <h3>Veit Lehmann</h3>
-                            <h4>CSS architecture / Maintainable CSS </h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sit eligendi ad illum ullam fuga quod. Repellat, eius architecto iusto nesciunt ex. Accusantium natus similique sed laudantium suscipit dicta earum.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="speaker_avatar">
-                            <div class="imgWrap">
-                                <img src="images/speakerMatthiasLau.jpg" class="avatar" alt="" />
-                                <a class="icon twitter" href="https://twitter.com/matthiaslau" title="Twitter"></a>
+                    <!-- Talkinfos here -->
+                    <template data-template="talk">
+                        <article>
+                            <div class="speaker_avatar">
+                                <img src="" class="avatar" alt="" data-binding="avatar" />
+                                <a class="icon twitter" href="" title="Twitter" data-binding="twitter"></a>
                             </div>
-                        </div>
-                        <div class="speaker_text">
-                            <h3>Matthias Lau</h3>
-                            <h4>The Big Picture: Responsive Images in Action</h4>
-                            <p>Although responsive designs are already state-of-the-art in web development the whole trend still is in its infancy. When it comes to images, a lot of responsive websites just load the same big image on every viewport. Because of this, people judge responsive design as being detrimental to performance. New markup elements like 'picture' are under discussion right now but what are the alternatives, what is the best to use right now, and how do they work? I will lead you through the different techniques and polyfills and show you their pros and cons. After this talk you should be able to choose the best fitting responsive image solution for your project.</p>
-                        </div>
-                    </article>
+                            <div class="speaker_text">
+                                <h2 data-binding="name"></h2>
+                                <h1 data-binding="title"></h1>
+                                <p data-binding="description"></p>
+                            </div>
+                        </article>
+                    </template>
                 </div>
             </section>
             <section id="tweetSection">
-                <div class="wrapper">   
+                <div class="wrapper">
                     <blockquote class="tweet">
                         <p></p>
                         <footer>
@@ -145,7 +134,7 @@
                 </div>
             </section>
             <section id="about">
-                <div class="wrapper">   
+                <div class="wrapper">
                     <article>
                         <h2>About</h2>
                         <div class="columnTwo">
@@ -187,7 +176,7 @@
                 </div>
             </section>
             <footer>
-                <div class="wrapper">   
+                <div class="wrapper">
                     <article>
                         <h2>Get in touch</h2>
                         <a href="" class="h3 mailaddress">info@decode-hh.de</a>
